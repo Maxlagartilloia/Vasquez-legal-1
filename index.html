@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vázquez Legal | Defensa Jurídica Integral: Penal, Civil, Laboral y Familia en Shushufindi</title>
+  <meta name="description" content="Estudio Jurídico Vázquez Legal. Defensa legal estratégica y ética en Derecho Penal, Civil, Laboral y de Familia. Asesoría especializada, confidencialidad y resultados comprobados en Shushufindi.">
+  <meta name="keywords" content="abogados Shushufindi, estudio jurídico Shushufindi, defensa penal, abogado laboral, abogado de familia, derecho civil Ecuador, Vázquez Legal">
+  <meta name="author" content="Estudio Jurídico Vázquez Legal">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* * PALETA DE COLORES CORPORATIVA Y LIMPIA
+     * Autoridad/Texto: Azul marino oscuro/Slate.
+     * Accent: Oro Corporativo Sutil.
+     */
+    :root {
+      --color-primary: #FFFFFF; 
+      --color-secondary: #F9FAFB; 
+      --color-authority: #1F2937; 
+      --color-accent: #9A7D4A; 
+      --color-whatsapp: #25D366; 
+    }
+    
+    /* Configuración de estilos base */
+    body {
+      background-color: var(--color-primary);
+      color: var(--color-authority);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    }
+    .text-authority { color: var(--color-authority); }
+    .bg-authority { background-color: var(--color-authority); }
+    .text-accent-gold { color: var(--color-accent); }
+    .border-accent-gold { border-color: var(--color-accent); }
+
+    /* Eliminamos el fondo animado */
+    .bg-animated { display: none; } 
+
+    /* ====== HEADER/NAVBAR ====== */
+    header {
+        border-bottom: 1px solid #E5E7EB;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+    }
+    .logo-nav {
+      height: 4rem; 
+      width: auto;
+    }
+    .logo-nav img {
+        filter: none; 
+    }
+    
+    /* ====== HERO SECCIÓN (CORREGIDA) ====== */
+    #hero-main-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: center;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+    @media (min-width: 1024px) {
+        #hero-main-container {
+            grid-template-columns: 1.2fr 0.8fr; 
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+    }
+    
+    /* Imagen lateral de Hero (Simulación de la pila de libros o ambiente corporativo) */
+    .hero-visual {
+        height: 400px; 
+        background-image: url('https://placehold.co/600x800/E0E0E0/1F2937?text=Ambiente+Legal+Profesional');
+        background-size: cover;
+        background-position: center;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* ====== CARDS (Limpios, con sombra sutil) ====== */
+    .card {
+      border-radius: 0.5rem;
+      border: 1px solid #E5E7EB; 
+      background: var(--color-primary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+      padding: 1.5rem;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }
+    .card:hover {
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+    }
+    
+    /* Eliminamos el efecto tilt/3D para el estilo corporativo limpio */
+    .tilt-card {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border: 1px solid #D1D5DB;
+      background: var(--color-secondary);
+      transition: none; 
+      transform: none;
+    }
+    .tilt-card:hover {
+      transform: none;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      border-color: #D1D5DB;
+    }
+
+    /* ====== BOTONES (Legibilidad Corregida) ====== */
+    .btn-primary, .btn-outline {
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s;
+      border-radius: 0.5rem; 
+      padding: 0.75rem 2rem; 
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .btn-primary {
+        background-color: var(--color-authority);
+        color: white; /* Letras blancas para alto contraste */
+        box-shadow: 0 4px 10px rgba(31, 41, 55, 0.2);
+    }
+    .btn-primary:hover {
+        background-color: #374151; 
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(31, 41, 55, 0.3);
+    }
+    
+    .btn-outline {
+        border: 1px solid var(--color-authority);
+        color: var(--color-authority); /* Letras oscuras para alto contraste */
+        background: transparent;
+    }
+    .btn-outline:hover {
+        background-color: var(--color-authority);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(31, 41, 55, 0.1);
+    }
+
+    /* ====== BOTÓN WHATSAPP FLOTANTE ====== */
+    .floating-whatsapp {
+        bottom: 32px;
+        right: 32px;
+    }
+
+    /* Ajuste de colores de texto y fondo para legibilidad */
+    .text-slate-300 { color: #4B5563; } /* Gris oscuro para párrafos */
+    .text-slate-400 { color: #6B7280; } /* Gris medio para detalles */
+    
+    .section-title {
+        color: var(--color-authority);
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+    }
+    
+    /* Footer ajustado al nuevo fondo */
+    footer {
+        background-color: var(--color-authority);
+        color: #D1D5DB;
+    }
+    
+  </style>
+</head>
+
+<body class="antialiased">
+  
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between gap-4">
+      <!-- Logo Vázquez Legal (Grande en Navbar) -->
+      <a href="#inicio" class="flex items-center">
+        <img src="https://i.postimg.cc/h4bM02ZG/IMG-0147.png" alt="Vázquez Legal Logo" class="logo-nav" />
+      </a>
+
+      <!-- Nav -->
+      <nav class="hidden md:flex items-center gap-7 text-[0.8rem] text-authority">
+        <a href="#confianza" class="hover:text-accent-gold transition-colors">Por qué elegirnos</a>
+        <a href="#servicios" class="hover:text-accent-gold transition-colors">Servicios</a>
+        <a href="#testimonios" class="hover:text-accent-gold transition-colors">Testimonios</a>
+        <a href="#nosotros" class="hover:text-accent-gold transition-colors">Nosotros</a>
+        <a href="#contacto" class="hover:text-accent-gold transition-colors">Contacto</a>
+      </nav>
+
+      <!-- CTAs - SOLO QUEDA EL BOTÓN DE MODAL -->
+      <div class="flex items-center gap-2">
+        <button
+          data-modal-target="modal-cita"
+          class="hidden md:inline-flex btn-primary text-sm">
+          Agendar Consulta
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="max-w-6xl mx-auto px-4 md:px-6 pb-20 space-y-20 md:space-y-28">
+
+    <!-- HERO (Corregido: Estructurado y Limpio) -->
+    <section id="inicio" class="relative">
+      <div id="hero-main-container" class="relative z-10 mx-auto max-w-6xl">
+        
+        <!-- Columna de Texto -->
+        <div class="max-w-4xl lg:max-w-none">
+          
+          <div class="flex items-center gap-2 text-sm text-authority border-b border-accent-gold pb-2 mb-6 max-w-lg">
+            <span class="inline-block h-2 w-2 rounded-full bg-accent-gold"></span>
+            <span class="uppercase tracking-widest text-xs font-semibold text-accent-gold">Defensa legal estratégica &middot; Primera consulta confidencial</span>
+          </div>
+
+          <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-authority">
+            Blindamos tu futuro: <span class="text-accent-gold">Estrategia, ética</span> y resultados medibles.
+          </h1>
+
+          <p class="text-lg leading-relaxed max-w-xl text-slate-700 mt-6 mb-8">
+            En Vázquez Legal combinamos experiencia jurídica con comunicación clara y acompañamiento humano en cada etapa del proceso.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+            <button
+              data-modal-target="modal-cita"
+              class="btn-primary w-full sm:w-auto">
+              <span>Agendar consulta legal</span>
+            </button>
+            <a href="#confianza" class="btn-outline w-full sm:w-auto">
+              Ver por qué somos diferentes
+            </a>
+          </div>
+          
+        </div>
+        
+        <!-- Columna de Imagen (Solo visible en LG+) -->
+        <div class="hidden lg:block hero-visual shadow-2xl">
+          <!-- Espacio reservado para una imagen de autoridad -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- POR QUÉ CONFIAR -->
+    <section id="confianza" class="space-y-8 reveal-on-scroll py-10 bg-secondary">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 max-w-6xl mx-auto px-4 md:px-6">
+        <div>
+          <h2 class="section-title">
+            ¿Por qué confiar tu caso a Vázquez Legal?
+          </h2>
+          <p class="text-sm md:text-base text-slate-600 max-w-2xl mt-2">
+            Sabemos que elegir abogado no se trata solo de títulos, sino de confianza. Por eso, cada caso lo trabajamos
+            con estrategia, transparencia y acompañamiento emocional, evitando sorpresas y explicando cada paso en lenguaje claro.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4 md:px-6">
+        <div class="card bg-white">
+          <p class="text-sm font-semibold text-accent-gold mb-2">Resultados medibles</p>
+          <p class="text-sm text-slate-600">
+            Más de <span class="font-semibold text-authority">1.200 clientes</span> han confiado en Vázquez Legal en procesos penales, laborales,
+            civiles y de familia, con un alto índice de resoluciones favorables.
+          </p>
+        </div>
+        <div class="card bg-white">
+          <p class="text-sm font-semibold text-accent-gold mb-2">Acompañamiento humano</p>
+          <p class="text-sm text-slate-600">
+            Convertimos lo técnico en comprensible. Te explicamos escenarios, riesgos y posibilidades para que tomes
+            decisiones desde la calma, no desde el miedo.
+          </p>
+        </div>
+        <div class="card bg-white">
+          <p class="text-sm font-semibold text-accent-gold mb-2">Transparencia total</p>
+          <p class="text-sm text-slate-600">
+            Honorarios claros, acuerdos por escrito y comunicación constante sobre el avance de tu caso. Nada ocurre
+            sin que tú lo sepas primero.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="space-y-8 reveal-on-scroll pt-10 pb-16">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <h2 class="section-title">Áreas de práctica jurídica de Vázquez Legal</h2>
+          <p class="text-sm md:text-base text-slate-600 max-w-2xl mt-2">
+            Ofrecemos defensa y asesoría integral a personas y empresas. Cada estrategia se diseña a la medida de tu caso,
+            considerando plazos, riesgos y objetivos reales.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Penal -->
+        <article class="card hover:translate-y-[-4px] transition-transform duration-200">
+          <h3 class="text-xl font-semibold mb-2 text-authority">Derecho Penal: Intervención y Defensa Urgente</h3>
+          <p class="text-sm text-slate-600 mb-3">
+            Intervención inmediata en detenciones, audiencias de flagrancia, medidas sustitutivas y procesos penales
+            complejos. Protegemos tus derechos desde el primer minuto.
+          </p>
+          <ul class="text-sm text-slate-600 list-disc list-inside space-y-1 mb-4">
+            <li>Asistencia en detenciones y audiencias.</li>
+            <li>Defensa en juicio oral y recursos.</li>
+            <li>Estrategias para reducción de riesgos penales.</li>
+          </ul>
+        </article>
+
+        <!-- Familia -->
+        <article class="card hover:translate-y-[-4px] transition-transform duration-200">
+          <h3 class="text-xl font-semibold mb-2 text-authority">Derecho de Familia: Soluciones con Prioridad Humana</h3>
+          <p class="text-sm text-slate-600 mb-3">
+            Procesos de divorcio, pensiones alimenticias, tenencia y régimen de visitas, con prioridad en el bienestar
+            emocional de niñas, niños y adolescentes.
+          </p>
+          <ul class="text-sm text-slate-600 list-disc list-inside space-y-1 mb-4">
+            <li>Divorcios de mutuo acuerdo y contenciosos.</li>
+            <li>Fijación y reajuste de pensiones.</li>
+            <li>Tenencia, visitas y medidas de protección.</li>
+          </ul>
+        </article>
+
+        <!-- Laboral -->
+        <article class="card hover:translate-y-[-4px] transition-transform duration-200">
+          <h3 class="text-xl font-semibold mb-2 text-authority">Derecho Laboral: Defensa de Trabajadores y Empresas</h3>
+          <p class="text-sm text-slate-600 mb-3">
+            Asesoría y defensa para trabajadores y empresas en despidos, liquidaciones, acoso laboral y conflictos
+            derivados de la relación de trabajo.
+          </p>
+          <ul class="text-sm text-slate-600 list-disc list-inside space-y-1 mb-4">
+            <li>Revisión de liquidaciones e indemnizaciones.</li>
+            <li>Demandas por despido intempestivo.</li>
+            <li>Estrategias de cumplimiento laboral para empresas.</li>
+          </ul>
+        </article>
+
+        <!-- Civil -->
+        <article class="card hover:translate-y-[-4px] transition-transform duration-200">
+          <h3 class="text-xl font-semibold mb-2 text-authority">Derecho Civil &amp; Patrimonial: Protección de Activos</h3>
+          <p class="text-sm text-slate-600 mb-3">
+            Cuidamos tu patrimonio a través de contratos claros, gestión de deudas, litigios civiles, herencias y
+            conflictos de propiedad.
+          </p>
+          <ul class="text-sm text-slate-600 list-disc list-inside space-y-1 mb-4">
+            <li>Contratos civiles y comerciales.</li>
+            <li>Herencias, sucesiones y particiones.</li>
+            <li>Reclamaciones por daños y deudas.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="space-y-8 reveal-on-scroll py-10 bg-secondary">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+        <p class="text-sm md:text-base text-slate-600 mt-2">
+          Historias reales de personas que enfrentaron momentos críticos y encontraron en Vázquez Legal una guía clara,
+          firme y humana.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card text-center bg-white">
+          <p class="text-sm text-slate-600 italic mb-4">
+            “Tenía miedo de perder la custodia de mis hijos. Me explicaron cada escenario, me acompañaron en todas las
+            audiencias y hoy tengo un acuerdo justo y estable para mi familia.”
+          </p>
+          <p class="font-semibold text-sm text-authority">María G.</p>
+          <p class="text-xs text-slate-500">Caso de Derecho de Familia</p>
+        </div>
+        <div class="card text-center bg-white">
+          <p class="text-sm text-slate-600 italic mb-4">
+            “Fui despedido de un día para otro. El estudio revisó mi liquidación, detectó errores y logramos una
+            indemnización completa. Sentí que alguien defendía mi esfuerzo de años.”
+          </p>
+          <p class="font-semibold text-sm text-authority">José A.</p>
+          <p class="text-xs text-slate-500">Caso de Derecho Laboral</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA INTERMEDIO -->
+    <section class="reveal-on-scroll py-10">
+      <div class="tilt-card p-6 md:p-8 lg:p-9 bg-authority text-white">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="space-y-2 md:space-y-3">
+            <h2 class="text-2xl md:text-3xl font-bold">
+              Tu caso merece más que una respuesta automática.
+            </h2>
+            <p class="text-sm md:text-base text-slate-300 max-w-xl">
+              Cuéntanos qué está pasando. Analizaremos tu situación de forma personalizada y te propondremos las rutas
+              legales más realistas, sin falsas expectativas.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+            <button
+              data-modal-target="modal-cita"
+              class="btn-primary cta-pulse w-full text-center !bg-white !text-authority hover:!bg-gray-200">
+              <span>Quiero evaluar mi caso</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO + MAPA -->
+    <section id="contacto" class="space-y-10 reveal-on-scroll pt-10 pb-16">
+      
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        
+        <!-- Mapa + info (Izquierda) -->
+        <div class="space-y-8 text-sm order-2 md:order-1">
+          <div class="map-container">
+            <!-- Dirección Shushufindi (Google Maps con la ubicación precisa) -->
+            <iframe
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.479586178783!2d-76.65706599999999!3d-0.18374929999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d3c015b3c467e7%3A0xc6657982f1b0a50!2sAv.%20R%C3%ADo%20Aguarico%20y%2011%20de%20Julio%2C%20Shushufindi!5e0!3m2!1sen!2sec!4v1700000000000">
+            </iframe>
+          </div>
+
+          <div class="card bg-white border border-gray-200">
+            <p class="font-semibold text-authority mb-1">Datos de contacto</p>
+            <p class="text-slate-600 text-sm">
+              Av. Río Aguarico y 11 de Julio, Barrio Amazonas<br>
+              Shushufindi, Ecuador
+            </p>
+            <div class="grid grid-cols-2 gap-3 mt-4 text-[0.8rem] text-slate-600">
+              <div>
+                <p class="font-semibold text-authority">Teléfono / WhatsApp</p>
+                <p>0987348079</p>
+              </div>
+              <div>
+                <p class="font-semibold text-authority">Correo</p>
+                <p>Vasquez_ab@outlook.com</p>
+              </div>
+              <div>
+                <p class="font-semibold text-authority">Horario</p>
+                <p>Lun - Vie: 08h30 - 18h30</p>
+                <p>Sáb: con cita previa</p>
+              </div>
+              <div>
+                <p class="font-semibold text-authority">Redes sociales</p>
+                <p>@vazquezlegal</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario (Derecha) -->
+        <div class="card bg-white border border-gray-200 order-1 md:order-2">
+            <h2 class="text-2xl font-bold text-authority mb-4">
+              Agenda tu Consulta Estratégica
+            </h2>
+            <p class="text-sm text-slate-600 mb-6">
+                Completa este formulario y nos pondremos en contacto para evaluar la urgencia y estrategia de tu caso.
+            </p>
+            
+          <form onsubmit="event.preventDefault(); showNotification('¡Mensaje enviado con éxito! Vázquez Legal te contactará en menos de 24 horas para agendar tu consulta.');" class="space-y-4 text-sm">
+            <div>
+              <label for="nombre" class="block mb-1 text-slate-600">Nombre completo</label>
+              <input id="nombre" name="nombre" type="text" required
+                     class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label for="telefono" class="block mb-1 text-slate-600">Teléfono / WhatsApp</label>
+                <input id="telefono" name="telefono" type="tel" required
+                       class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
+              </div>
+              <div>
+                <label for="email" class="block mb-1 text-slate-600">Correo electrónico</label>
+                <input id="email" name="email" type="email" required
+                       class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
+              </div>
+            </div>
+
+            <div>
+              <label for="tipo" class="block mb-1 text-slate-600">Tipo de servicio legal</label>
+              <select id="tipo" name="tipo"
+                      class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
+                <option value="">Selecciona una opción</option>
+                <option value="penal">Derecho Penal</option>
+                <option value="familia">Derecho de Familia</option>
+                <option value="laboral">Derecho Laboral</option>
+                <option value="civil">Derecho Civil &amp; Patrimonial</option>
+                <option value="otros">Otro tipo de consulta</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="detalles" class="block mb-1 text-slate-600">Cuéntanos brevemente tu caso</label>
+              <textarea id="detalles" name="detalles" rows="4" required
+                        class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority"
+                        placeholder="No incluyas datos extremadamente sensibles en este primer contacto."></textarea>
+            </div>
+
+            <div>
+              <label for="urgencia" class="block mb-1 text-slate-600">Urgencia del caso</label>
+              <select id="urgencia" name="urgencia"
+                      class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
+                <option value="">Selecciona una opción</option>
+                <option value="inmediata">Inmediata (detención, audiencia próxima)</option>
+                <option value="corto_plazo">En los próximos días</option>
+                <option value="planificacion">Estoy planificando acciones legales</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-primary w-full justify-center">
+              <span>Enviar información para evaluación</span>
+            </button>
+
+            <p class="text-[11px] text-slate-500 mt-2">
+              La información enviada es confidencial y será revisada únicamente por el equipo legal del estudio.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+    
+    <!-- NOSOTROS -->
+    <section id="nosotros" class="space-y-8 reveal-on-scroll py-10">
+      <div class="grid md:grid-cols-[1.2fr,0.9fr] gap-8 items-start">
+        <div>
+          <h2 class="section-title">Sobre Vázquez Legal</h2>
+          <p class="text-sm md:text-base text-slate-600 mt-2">
+            Somos un estudio jurídico que apuesta por una abogacía cercana, clara y profundamente responsable. No
+            trabajamos con plantillas; cada caso se analiza como único, considerando el impacto real en tu vida.
+          </p>
+
+          <div class="mt-5 space-y-3 text-sm text-slate-600">
+            <p>
+              Con más de <span class="font-semibold text-authority">15 años de experiencia</span> en litigios y asesoría, nuestro equipo reúne
+              especialistas en distintas áreas del derecho para construir estrategias integrales y consistentes.
+            </p>
+            <p>
+              Nuestra filosofía es simple: <span class="italic">no prometer lo que no se puede cumplir</span> y acompañarte con honestidad,
+              incluso cuando la respuesta jurídica no sea la que esperas.
+            </p>
+          </div>
+        </div>
+
+        <div class="card bg-white border border-gray-200">
+          <div class="flex flex-col items-center text-center gap-3 mb-3">
+            <div class="h-20 w-20 rounded-3xl border border-accent-gold/70 bg-gray-100 shadow-lg flex items-center justify-center text-2xl font-bold text-accent-gold">
+              VL
+            </div>
+            <div>
+              <p class="font-semibold text-base text-authority">Leidy Vázquez G. (Abogada)</p>
+              <p class="text-xs text-slate-500">Directora del Estudio Jurídico</p>
+            </div>
+          </div>
+          <p class="text-sm text-slate-600 mb-3">
+            Abogada litigante especializada en Derecho Penal y Constitucional. Ha patrocinado casos de alta complejidad,
+            combinando técnica jurídica y sensibilidad humana.
+          </p>
+          <div class="text-[0.7rem] text-slate-500 space-y-1">
+            <p>Registro profesional N.° 12345 - Consejo de la Judicatura</p>
+            <p>Miembro de la Asociación de Abogados del Ecuador</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CIERRE PERSUASIVO FINAL -->
+    <section id="final-cta" class="reveal-on-scroll py-16 bg-authority text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                La decisión más importante para tu caso es <span class="text-accent-gold">hoy.</span>
+            </h2>
+            <p class="text-lg text-gray-300 mb-8">
+                No posponga la seguridad jurídica. Una llamada a Vázquez Legal es el primer paso para tomar control de su situación legal, con la ética y el rigor que su caso merece.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+                <a href="tel:0987348079" class="btn-primary w-full sm:w-auto text-center !bg-white text-authority hover:!bg-gray-100">
+                    <span>Llamar y Agendar Consulta</span>
+                </a>
+            </div>
+
+            <div class="text-sm text-gray-400 space-y-1">
+                <p>
+                    <span class="font-semibold text-white">Dirección:</span> Av. Río Aguarico y 11 de Julio, Barrio Amazonas, Shushufindi
+                </p>
+                <p>
+                    <span class="font-semibold text-white">WhatsApp:</span> 0987348079
+                    <span class="mx-2">|</span>
+                    <span class="font-semibold text-white">Correo:</span> Vasquez_ab@outlook.com
+                </p>
+                <p>
+                    <span class="font-semibold text-white">Horario:</span> Lun-Vie 08h30 - 18h30
+                </p>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-authority">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] md:text-xs text-gray-400">
+      <p>
+        © <span id="year"></span> Estudio Jurídico Vázquez Legal. Todos los derechos reservados.
+      </p>
+      <p class="text-gray-500">
+        Defensa legal profesional &middot; Confidencialidad &middot; Ética &middot; Resultados
+      </p>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a href="https://wa.me/593987348079?text=Hola,%20necesito%20asesoría%20legal%20urgente%20en%20Shushufindi." target="_blank" class="floating-whatsapp" aria-label="WhatsApp de contacto inmediato">
+    <!-- Icono de WhatsApp -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12.03 2.004c-5.503 0-9.976 4.47-9.976 9.974 0 1.954.557 3.863 1.62 5.56L1.004 22.996l6.233-1.637a9.986 9.986 0 0 0 4.792 1.134c5.504 0 9.976-4.47 9.976-9.974.001-5.504-4.472-9.977-9.976-9.977zM17.587 15.656c-.287.712-.993 1.157-1.745 1.157-.001 0-.001 0-.002 0-.295 0-.58-.093-.815-.279-1.096-.867-2.735-1.579-4.375-1.933a.475.475 0 0 1-.225-.038c-.066-.017-.134-.035-.205-.055-.83-.244-1.69-.607-2.485-1.077-.184-.108-.346-.239-.486-.395-.69-.76-.902-1.642-.902-2.522 0-1.127.57-2.112 1.547-2.766.425-.285.875-.427 1.328-.427.247 0 .493.037.728.113.332.108.571.37.669.704l.583 1.905c.105.344.025.727-.225 1.013-.198.223-.423.334-.633.376-.024.005-.049.006-.075.006-.214 0-.427-.086-.593-.257-.14-.141-.318-.282-.505-.38-.179-.095-.367-.143-.559-.143-.192 0-.385.048-.559.143-.14.076-.282.207-.406.395-.494.757-.123 1.706.371 2.385.505.679 1.152 1.348 2.302 1.831 1.149.483 2.302.733 3.454.755.025.001.05.002.075.002.664 0 1.298-.255 1.831-.738.169-.153.303-.357.391-.567.147-.32.062-.68-.198-1.012l-.583-1.905c-.097-.334-.02-1.072.71-1.398.423-.194.887-.335 1.325-.335.216 0 .43.037.64.113.882.352 1.696.868 2.296 1.488.082.083.176.166.275.253.211.189.373.402.486.634.332.74.015 1.76-.696 2.477z"/></svg>
+  </a>
+
+  <!-- MODAL CITA -->
+  <div id="modal-cita-backdrop" class="modal-backdrop hidden opacity-0 transition-opacity duration-200">
+    <div id="modal-cita-panel" class="modal-panel bg-white text-authority">
+      <div class="flex items-start justify-between gap-4 mb-3">
+        <div>
+          <p class="text-[0.7rem] uppercase tracking-[0.2em] text-gray-500 mb-1">
+            Agenda tu consulta
+          </p>
+          <h3 class="text-lg font-semibold text-authority">
+            Programa una llamada con nuestro equipo legal
+          </h3>
+        </div>
+        <button
+          type="button"
+          data-modal-close="modal-cita"
+          class="rounded-full border border-gray-300 text-gray-500 h-8 w-8 flex items-center justify-center text-xs hover:border-accent-gold hover:text-accent-gold transition-colors">
+          ✕
+        </button>
+      </div>
+      <p class="text-xs text-slate-600 mb-4">
+        Déjanos tus datos y la franja horaria en la que prefieres que te contactemos. Un miembro del estudio revisará tu caso y te responderá en menos de 24 horas hábiles.
+      </p>
+
+      <form onsubmit="event.preventDefault(); showNotification('¡Solicitud de cita enviada! Te contactaremos a la brevedad para confirmar horario.', 'modal-cita');" class="space-y-3 text-xs">
+        <div>
+          <label class="block mb-1 text-slate-600">Nombre completo</label>
+          <input type="text" required
+                 class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block mb-1 text-slate-600">WhatsApp</label>
+            <input type="tel" required
+                   class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
+          </div>
+          <div>
+            <label class="block mb-1 text-slate-600">Franja horaria</label>
+            <select
+              class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
+              <option value="">Selecciona una opción</option>
+              <option>Mañana (08h00 - 12h00)</option>
+              <option>Tarde (13h00 - 17h00)</option>
+              <option>Noche (17h00 - 19h00)</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block mb-1 text-slate-600">Breve descripción del caso</label>
+          <textarea rows="3"
+                    class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority"></textarea>
+        </div>
+        <button type="submit" class="btn-primary w-full justify-center">
+          <span>Enviar solicitud de cita</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JS: año, scroll reveal, modales -->
+  <script>
+    // Función de alerta personalizada (en lugar de alert() nativo)
+    function showNotification(message, modalIdToClose) {
+        if (modalIdToClose) {
+            closeModal(modalIdToClose);
+        }
+        
+        const notification = document.createElement('div');
+        notification.innerHTML = `
+            <div id="custom-alert" class="fixed top-5 right-5 z-50 p-4 bg-authority text-white rounded-lg shadow-xl transition-all duration-300 transform opacity-0 translate-y-[-20px] font-semibold text-sm">
+                ${message}
+            </div>
+        `;
+        document.body.appendChild(notification);
+        
+        // Animación de entrada
+        setTimeout(() => {
+            const alertElement = document.getElementById('custom-alert');
+            alertElement.classList.remove('opacity-0', 'translate-y-[-20px]');
+            alertElement.classList.add('opacity-100', 'translate-y-0');
+        }, 10);
+
+        // Animación de salida y remoción
+        setTimeout(() => {
+            const alertElement = document.getElementById('custom-alert');
+            alertElement.classList.remove('opacity-100', 'translate-y-0');
+            alertElement.classList.add('opacity-0', 'translate-y-[-20px]');
+            setTimeout(() => notification.remove(), 300);
+        }, 5000); // 5 segundos visible
+    }
+
+    // Año automático
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Animaciones on scroll
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, 
+      { threshold: 0.15 }
+    );
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+    // Modales
+    function openModal(id) {
+      const backdrop = document.getElementById(id + '-backdrop');
+      const panel = document.getElementById(id + '-panel');
+      if (!backdrop || !panel) return;
+      
+      // Muestra el fondo
+      backdrop.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        backdrop.classList.add('opacity-100');
+        // Muestra el panel
+        panel.classList.add('open');
+      });
+    }
+
+    function closeModal(id) {
+      const backdrop = document.getElementById(id + '-backdrop');
+      const panel = document.getElementById(id + '-panel');
+      if (!backdrop || !panel) return;
+      
+      // Oculta el panel
+      panel.classList.remove('open');
+      // Oculta el fondo después de la transición
+      backdrop.classList.remove('opacity-100');
+      setTimeout(() => {
+        backdrop.classList.add('hidden');
+      }, 200);
+    }
+
+    document.querySelectorAll('[data-modal-target]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-modal-target');
+        if (id) openModal(id);
+      });
+    });
+
+    document.querySelectorAll('[data-modal-close]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-modal-close');
+        if (id) closeModal(id);
+      });
+    });
+
+    // Cerrar al hacer click fuera
+    document.getElementById('modal-cita-backdrop').addEventListener('click', (e) => {
+      if (e.target.id === 'modal-cita-backdrop') {
+        closeModal('modal-cita');
+      }
+    });
+
+    // Función para el envío del formulario principal (Contacto)
+    document.querySelector('#contacto form').onsubmit = function(event) {
+        event.preventDefault();
+        // Simulación de envío de datos
+        const data = {
+            nombre: document.getElementById('nombre').value,
+            telefono: document.getElementById('telefono').value,
+            email: document.getElementById('email').value,
+            tipo: document.getElementById('tipo').value,
+            detalles: document.getElementById('detalles').value,
+            urgencia: document.getElementById('urgencia').value
+        };
+        console.log('--- Simulación de envío a Email (Formulario de Contacto) ---');
+        console.log('Asunto: Nueva Consulta Legal - Vázquez Legal');
+        console.log('Datos del cliente:', data);
+        console.log('------------------------------------');
+        
+        showNotification('¡Mensaje enviado con éxito! Vázquez Legal te contactará en menos de 24 horas para agendar tu consulta. (Datos registrados en consola para simulación de envío a email).');
+        this.reset();
+    };
+    
+    // Función para el envío del formulario del MODAL
+    document.querySelector('#modal-cita-panel form').onsubmit = function(event) {
+        event.preventDefault();
+        
+        const data = {
+            nombre: this.querySelector('input[type="text"]').value,
+            whatsapp: this.querySelector('input[type="tel"]').value,
+            horario: this.querySelector('select').value,
+            descripcion: this.querySelector('textarea').value
+        };
+        console.log('--- Simulación de envío de Cita Rápida a Email (Modal) ---');
+        console.log('Asunto: Solicitud de Cita Rápida - Vázquez Legal');
+        console.log('Datos de Cita:', data);
+        console.log('------------------------------------');
+        
+        showNotification('¡Solicitud de cita enviada! Te contactaremos a la brevedad para confirmar horario. (Datos registrados en consola para simulación de envío a email).', 'modal-cita');
+        this.reset();
+    };
+
+  </script>
+</body>
+</html>
+
