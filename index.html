@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -12,39 +12,42 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
+    /* Nueva Paleta de Colores Suaves */
     :root {
       --color-primary: #FFFFFF; 
-      --color-secondary: #F9FAFB; 
-      --color-authority: #111827; 
-      --color-accent: #9A7D4A; 
+      --color-secondary: #F7F7F7; /* Soft light gray for alternate sections */
+      --color-authority: #263238; /* Soft deep blue-gray */
+      --color-accent: #B8860B; /* Brighter Gold */
       --color-whatsapp: #25D366; 
     }
     
     body {
       background-color: var(--color-primary);
       color: var(--color-authority);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
     }
     .text-authority { color: var(--color-authority); }
     .bg-authority { background-color: var(--color-authority); }
     .text-accent-gold { color: var(--color-accent); }
     .border-accent-gold { border-color: var(--color-accent); }
-    .bg-secondary { background-color: var(--color-secondary); }
+    .bg-secondary { background-color: var(--color-secondary); transition: background-color 0.3s ease; }
 
-    /* HEADER OSCURO */
+    /* HEADER LIGERO */
     header {
-        border-bottom: 1px solid #111827;
-        background-color: var(--color-authority);
-        color: #F9FAFB;
+        border-bottom: none;
+        background-color: rgba(255, 255, 255, 0.95); /* Light header with transparency */
+        color: var(--color-authority);
         backdrop-filter: blur(8px);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Soft header shadow */
     }
     .logo-nav {
-      height: 8rem;   /* logo grande */
+      height: 5.5rem;   /* Reduced logo size for lighter header */
       width: auto;
     }
     .nav-link {
-      color: #E5E7EB;
-      font-size: 0.8rem;
+      color: var(--color-authority);
+      font-size: 0.9rem;
+      font-weight: 500;
     }
     .nav-link:hover {
       color: var(--color-accent);
@@ -69,45 +72,46 @@
     
     .hero-visual {
         height: 400px; 
-        background-image: url('https://i.postimg.cc/mDLLvhy3/IMG-0244.png');
+        /* Usando una imagen placeholder para mantener el código autocontenido */
+        background-image: url('https://placehold.co/800x600/263238/FFFFFF?text=Abogada+Vázquez+Legal');
         background-size: cover;
         background-position: center;    
-        border-radius: 0.5rem;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        border-radius: 0.75rem; /* Más redondeado */
+        box-shadow: 0 12px 30px rgba(38, 50, 56, 0.1); /* Sombra suave */
     }
     
     /* CARDS */
     .card {
-      border-radius: 0.5rem;
-      border: 1px solid #E5E7EB; 
+      border-radius: 0.75rem; /* Más redondeado */
+      border: 1px solid #E0E0E0; /* Borde más suave */ 
       background: var(--color-primary);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Sombra muy suave */ 
       padding: 1.5rem;
       transition: box-shadow 0.3s ease, transform 0.2s ease;
     }
     .card:hover {
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        transform: translateY(-3px);
     }
     
-    /* CTA card */
+    /* CTA card (Darker for contrast) */
     .tilt-card {
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      border: 1px solid #D1D5DB;
-      background: transparent;
-      transition: none; 
-      transform: none;
+      background-color: var(--color-authority); /* Dark background */
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(38, 50, 56, 0.4);
+      transition: box-shadow 0.3s ease;
+      transform: none; 
     }
     .tilt-card:hover {
       transform: none;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      border-color: #D1D5DB;
+      box-shadow: 0 12px 35px rgba(38, 50, 56, 0.5);
     }
 
     /* BOTONES */
     .btn-primary, .btn-outline {
       transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s;
-      border-radius: 0.5rem; 
+      border-radius: 0.75rem; /* Más redondeado */ 
       padding: 0.75rem 2rem; 
       font-size: 1rem;
       font-weight: 600;
@@ -119,12 +123,12 @@
     .btn-primary {
         background-color: var(--color-authority);
         color: white; 
-        box-shadow: 0 4px 10px rgba(31, 41, 55, 0.2);
+        box-shadow: 0 4px 10px rgba(38, 50, 56, 0.2);
     }
     .btn-primary:hover {
-        background-color: #1f2937; 
+        background-color: #37474F; /* Lighter authority hover */
         transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(31, 41, 55, 0.3);
+        box-shadow: 0 6px 15px rgba(38, 50, 56, 0.3);
     }
     
     .btn-outline {
@@ -136,25 +140,27 @@
         background-color: var(--color-authority);
         color: white;
         transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(31, 41, 55, 0.1);
+        box-shadow: 0 6px 15px rgba(38, 50, 56, 0.1);
     }
     
+    /* Nuevo estilo para CTA de alto contraste (Gold) */
     .btn-high-contrast {
-        background-color: white !important;
-        color: var(--color-authority) !important;
-        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+        background-color: var(--color-accent) !important;
+        color: white !important;
+        box-shadow: 0 4px 10px rgba(184, 134, 11, 0.5);
+        border: 1px solid var(--color-accent);
     }
     .btn-high-contrast:hover {
-        background-color: #f3f4f6 !important;
-        box-shadow: 0 6px 15px rgba(255, 255, 255, 0.4);
+        background-color: #D4AF37 !important; /* Lighter gold */
+        box-shadow: 0 6px 15px rgba(184, 134, 11, 0.7);
     }
 
     .cta-pulse {
       animation: ctaPulse 2.4s ease-in-out infinite;
     }
     @keyframes ctaPulse {
-      0%, 100% { transform: translateY(0); box-shadow: 0 4px 10px rgba(255,255,255,0.2); }
-      50% { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(255,255,255,0.4); }
+      0%, 100% { transform: translateY(0); box-shadow: 0 4px 10px rgba(184, 134, 11, 0.5); }
+      50% { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(184, 134, 11, 0.8); }
     }
 
     /* WHATSAPP FLOTANTE */
@@ -164,38 +170,38 @@
         position: fixed;
         background-color: var(--color-whatsapp);
         color: white;
-        width: 56px;
-        height: 56px;
+        width: 60px; /* Más grande */
+        height: 60px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.6);
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.6);
         z-index: 1000;
         transition: transform 0.3s ease;
     }
     .floating-whatsapp:hover {
-        transform: scale(1.1);
+        transform: scale(1.15); /* Más acentuado */
     }
 
-    .text-slate-300 { color: #D1D5DB; }
-    .text-slate-700 { color: #374151; }
+    .text-slate-300 { color: #CFD8DC; }
+    .text-slate-700 { color: #546E7A; /* Softer text color */ }
     
     .section-title {
         color: var(--color-authority);
-        font-size: clamp(2rem, 3.5vw, 2.75rem);
-        font-weight: 700;
+        font-size: clamp(2.2rem, 3.5vw, 3rem); /* Más grande */
+        font-weight: 800; /* Más audaz */
     }
     
     footer {
         background-color: var(--color-authority);
-        color: #D1D5DB;
+        color: #CFD8DC; /* Light footer text */
     }
 
     .map-container {
       position: relative;
       width: 100%;
-      border-radius: 0.5rem;
+      border-radius: 0.75rem;
       overflow: hidden;
       box-shadow: 0 6px 18px rgba(0,0,0,0.12);
       background: #E5E7EB;
@@ -208,37 +214,10 @@
       display: block;
     }
 
-    .modal-backdrop {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(17, 24, 39, 0.7);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 5000;
-    }
-    .modal-panel {
-        max-width: 90%;
-        width: 400px;
-        padding: 1.5rem;
-        border-radius: 0.75rem;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        transform: translateY(-50px);
-        opacity: 0;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    .modal-panel.open {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
     .reveal-on-scroll {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(20px); /* Ligeramente más bajo */
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
     .reveal-on-scroll.show {
       opacity: 1;
@@ -249,22 +228,38 @@
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
-      padding: 0.25rem 0.6rem;
+      padding: 0.35rem 0.8rem;
       border-radius: 999px;
-      font-size: 0.7rem;
+      font-size: 0.75rem; /* Ligeramente más grande */
       font-weight: 500;
-      background-color: #F3F4F6;
-      color: #4B5563;
+      background-color: #E0E0E0; /* Badge background soft */
+      color: var(--color-authority);
+      border: 1px solid #D1D1D1;
+    }
+    
+    /* Estilos para el spinner de carga en el botón */
+    .spinner {
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top: 2px solid #fff;
+      width: 1rem;
+      height: 1rem;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
   </style>
 </head>
 
 <body class="antialiased">
   
-  <!-- HEADER -->
+  <!-- HEADER - Ligero y Transparente -->
   <header class="sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between gap-4">
       <a href="#inicio" class="flex items-center">
+        <!-- Assuming this logo works on a light background or is a placeholder for a proper logo -->
         <img src="https://i.postimg.cc/h4bM02ZG/IMG-0147.png" alt="Vázquez Legal Logo" class="logo-nav" />
       </a>
 
@@ -278,7 +273,7 @@
         <a href="#contacto" class="nav-link transition-colors">Contacto</a>
       </nav>
 
-      <!-- CTA header => MAIL -->
+      <!-- CTA header => MAIL (Uses Gold Accent now) -->
       <div class="flex items-center gap-2">
         <a
           href="mailto:Vasquez_ab@outlook.com?subject=Solicitud%20de%20consulta%20legal&body=Hola%2C%20necesito%20asesor%C3%ADa%20legal.%20Por%20favor%20cont%C3%A1cteme."
@@ -296,14 +291,14 @@
     <section id="inicio" class="relative">
       <div id="hero-main-container" class="relative z-10 mx-auto max-w-6xl">
         <div class="max-w-4xl lg:max-w-none">
-          <div class="flex items-center gap-2 text-sm text-authority border-b border-accent-gold pb-2 mb-6 max-w-lg bg-white/80">
+          <div class="flex items-center gap-2 text-sm text-authority border-b border-accent-gold pb-2 mb-6 max-w-lg bg-white/80 rounded-t-lg">
             <span class="inline-block h-2 w-2 rounded-full bg-accent-gold"></span>
             <span class="uppercase tracking-widest text-xs font-semibold text-accent-gold">
               Defensa legal estratégica · Primera consulta confidencial
             </span>
           </div>
 
-          <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-authority">
+          <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight text-authority">
             Blindamos tu futuro: <span class="text-accent-gold">Estrategia, ética</span> y resultados medibles.
           </h1>
 
@@ -312,7 +307,7 @@
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-            <!-- HERO CTA => MAIL -->
+            <!-- HERO CTA => MAIL (Primary Authority Color) -->
             <a
               href="mailto:Vasquez_ab@outlook.com?subject=Solicitud%20de%20consulta%20legal&body=Hola%2C%20necesito%20asesor%C3%ADa%20legal.%20Por%20favor%20cont%C3%A1cteme."
               class="btn-primary w-full sm:w-auto">
@@ -341,14 +336,14 @@
       </div>
     </section>
 
-    <!-- POR QUÉ CONFIAR -->
-    <section id="confianza" class="space-y-8 reveal-on-scroll py-10 bg-secondary">
+    <!-- POR QUÉ CONFIAR - Fondo Suave -->
+    <section id="confianza" class="space-y-8 reveal-on-scroll py-10 bg-secondary rounded-xl">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 max-w-6xl mx-auto px-0">
         <div>
           <h2 class="section-title">
             ¿Por qué confiar tu caso a Vázquez Legal?
           </h2>
-          <p class="text-sm md:text-base text-slate-700 max-w-2xl mt-2">
+          <p class="text-sm md:text-base text-slate-700 max-w-2xl mt-3">
             Sabemos que elegir abogado no se trata solo de títulos, sino de confianza. Por eso, cada caso lo trabajamos
             con estrategia, transparencia y acompañamiento emocional, evitando sorpresas y explicando cada paso en lenguaje claro.
           </p>
@@ -357,21 +352,21 @@
 
       <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-0">
         <div class="card bg-white">
-          <p class="text-sm font-semibold text-accent-gold mb-2">Resultados medibles</p>
+          <p class="text-base font-semibold text-accent-gold mb-2">Resultados medibles</p>
           <p class="text-sm text-slate-700">
-            Más de <span class="font-semibold text-authority">1.200 clientes</span> han confiado en Vázquez Legal en procesos penales, laborales,
+            Más de <span class="font-bold text-authority">1.200 clientes</span> han confiado en Vázquez Legal en procesos penales, laborales,
             civiles y de familia, con un alto índice de resoluciones favorables.
           </p>
         </div>
         <div class="card bg-white">
-          <p class="text-sm font-semibold text-accent-gold mb-2">Acompañamiento humano</p>
+          <p class="text-base font-semibold text-accent-gold mb-2">Acompañamiento humano</p>
           <p class="text-sm text-slate-700">
             Convertimos lo técnico en comprensible. Te explicamos escenarios, riesgos y posibilidades para que tomes
             decisiones desde la calma, no desde el miedo.
           </p>
         </div>
         <div class="card bg-white">
-          <p class="text-sm font-semibold text-accent-gold mb-2">Transparencia total</p>
+          <p class="text-base font-semibold text-accent-gold mb-2">Transparencia total</p>
           <p class="text-sm text-slate-700">
             Honorarios claros, acuerdos por escrito y comunicación constante sobre el avance de tu caso. Nada ocurre
             sin que tú lo sepas primero.
@@ -385,7 +380,7 @@
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
         <div>
           <h2 class="section-title">Áreas de práctica jurídica de Vázquez Legal</h2>
-          <p class="text-sm md:text-base text-slate-700 max-w-2xl mt-2">
+          <p class="text-sm md:text-base text-slate-700 max-w-2xl mt-3">
             Ofrecemos defensa y asesoría integral a personas y empresas. Cada estrategia se diseña a la medida de tu caso,
             considerando plazos, riesgos y objetivos reales.
           </p>
@@ -394,12 +389,12 @@
 
       <div class="grid md:grid-cols-2 gap-6">
         <article class="card hover:translate-y-[-4px] transition-transform duration-200">
-          <h3 class="text-xl font-semibold mb-2 text-authority">Derecho Penal: Intervención y Defensa Urgente</h3>
+          <h3 class="text-xl font-bold mb-2 text-authority">Derecho Penal: Intervención y Defensa Urgente</h3>
           <p class="text-sm text-slate-700 mb-3">
             Intervención inmediata en detenciones, audiencias de flagrancia, medidas sustitutivas y procesos penales
             complejos. Protegemos tus derechos desde el primer minuto.
           </p>
-          <ul class="text-sm text-slate-700 list-disc list-inside space-y-1 mb-4">
+          <ul class="text-sm text-slate-700 list-disc list-inside space-y-1 mb-4 pl-4">
             <li>Asistencia en detenciones y audiencias.</li>
             <li>Defensa en juicio oral y recursos.</li>
             <li>Estrategias para reducción de riesgos penales.</li>
@@ -407,12 +402,12 @@
         </article>
 
         <article class="card hover:translate-y-[-4px] transition-transform duration-200">
-          <h3 class="text-xl font-semibold mb-2 text-authority">Derecho de Familia: Soluciones con Prioridad Humana</h3>
+          <h3 class="text-xl font-bold mb-2 text-authority">Derecho de Familia: Soluciones con Prioridad Humana</h3>
           <p class="text-sm text-slate-700 mb-3">
             Procesos de divorcio, pensiones alimenticias, tenencia y régimen de visitas, con prioridad en el bienestar
             emocional de niñas, niños y adolescentes.
           </p>
-          <ul class="text-sm text-slate-700 list-disc list-inside space-y-1 mb-4">
+          <ul class="text-sm text-slate-700 list-disc list-inside space-y-1 mb-4 pl-4">
             <li>Divorcios de mutuo acuerdo y contenciosos.</li>
             <li>Fijación y reajuste de pensiones.</li>
             <li>Tenencia, visitas y medidas de protección.</li>
@@ -420,12 +415,12 @@
         </article>
 
         <article class="card hover:translate-y-[-4px] transition-transform duration-200">
-          <h3 class="text-xl font-semibold mb-2 text-authority">Derecho Laboral: Defensa de Trabajadores y Empresas</h3>
+          <h3 class="text-xl font-bold mb-2 text-authority">Derecho Laboral: Defensa de Trabajadores y Empresas</h3>
           <p class="text-sm text-slate-700 mb-3">
             Asesoría y defensa para trabajadores y empresas en despidos, liquidaciones, acoso laboral y conflictos
             derivados de la relación de trabajo.
           </p>
-          <ul class="text-sm text-slate-700 list-disc list-inside space-y-1 mb-4">
+          <ul class="text-sm text-slate-700 list-disc list-inside space-y-1 mb-4 pl-4">
             <li>Revisión de liquidaciones e indemnizaciones.</li>
             <li>Demandas por despido intempestivo.</li>
             <li>Estrategias de cumplimiento laboral para empresas.</li>
@@ -433,12 +428,12 @@
         </article>
 
         <article class="card hover:translate-y-[-4px] transition-transform duration-200">
-          <h3 class="text-xl font-semibold mb-2 text-authority">Derecho Civil &amp; Patrimonial: Protección de Activos</h3>
+          <h3 class="text-xl font-bold mb-2 text-authority">Derecho Civil &amp; Patrimonial: Protección de Activos</h3>
           <p class="text-sm text-slate-700 mb-3">
             Cuidamos tu patrimonio a través de contratos claros, gestión de deudas, litigios civiles, herencias y
             conflictos de propiedad.
           </p>
-          <ul class="text-sm text-slate-700 list-disc list-inside space-y-1 mb-4">
+          <ul class="text-sm text-slate-700 list-disc list-inside space-y-1 mb-4 pl-4">
             <li>Contratos civiles y comerciales.</li>
             <li>Herencias, sucesiones y particiones.</li>
             <li>Reclamaciones por daños y deudas.</li>
@@ -447,11 +442,11 @@
       </div>
     </section>
 
-    <!-- TESTIMONIOS -->
-    <section id="testimonios" class="space-y-8 reveal-on-scroll py-10 bg-secondary">
+    <!-- TESTIMONIOS - Fondo Suave -->
+    <section id="testimonios" class="space-y-8 reveal-on-scroll py-10 bg-secondary rounded-xl">
       <div class="text-center max-w-2xl mx-auto">
         <h2 class="section-title">Lo que dicen nuestros clientes</h2>
-        <p class="text-sm md:text-base text-slate-700 mt-2">
+        <p class="text-sm md:text-base text-slate-700 mt-3">
           Historias reales de personas que enfrentaron momentos críticos y encontraron en Vázquez Legal una guía clara,
           firme y humana.
         </p>
@@ -482,7 +477,7 @@
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
         <div>
           <h2 class="section-title">Experiencia comprobada en territorio</h2>
-          <p class="text-sm md:text-base text-slate-700 max-w-2xl mt-2">
+          <p class="text-sm md:text-base text-slate-700 max-w-2xl mt-3">
             Vázquez Legal acompaña a personas y empresas en Shushufindi y cantones aledaños, con presencia constante en
             juzgados, unidades judiciales y audiencias telemáticas a nivel nacional.
           </p>
@@ -495,50 +490,50 @@
       <div class="grid md:grid-cols-4 gap-6 mb-10">
         <div class="card bg-white text-center">
           <p class="text-xs uppercase tracking-[0.18em] text-slate-500 mb-1">Casos atendidos</p>
-          <p class="text-3xl font-bold text-authority mb-1">+1.200</p>
+          <p class="text-3xl font-extrabold text-authority mb-1">+1.200</p>
           <p class="text-[0.8rem] text-slate-600">Personas y empresas asesoradas en distintas ramas del derecho.</p>
         </div>
         <div class="card bg-white text-center">
           <p class="text-xs uppercase tracking-[0.18em] text-slate-500 mb-1">Procesos de familia</p>
-          <p class="text-3xl font-bold text-authority mb-1">+450</p>
+          <p class="text-3xl font-extrabold text-authority mb-1">+450</p>
           <p class="text-[0.8rem] text-slate-600">Divorcios, pensiones, tenencia y régimen de visitas.</p>
         </div>
         <div class="card bg-white text-center">
           <p class="text-xs uppercase tracking-[0.18em] text-slate-500 mb-1">Defensas penales</p>
-          <p class="text-3xl font-bold text-authority mb-1">+300</p>
+          <p class="text-3xl font-extrabold text-authority mb-1">+300</p>
           <p class="text-[0.8rem] text-slate-600">Intervención en detenciones, flagrancias y juicios orales.</p>
         </div>
         <div class="card bg-white text-center">
           <p class="text-xs uppercase tracking-[0.18em] text-slate-500 mb-1">Casos laborales</p>
-          <p class="text-3xl font-bold text-authority mb-1">+250</p>
+          <p class="text-3xl font-extrabold text-authority mb-1">+250</p>
           <p class="text-[0.8rem] text-slate-600">Despidos, liquidaciones y reclamaciones de derechos.</p>
         </div>
       </div>
 
       <div class="card bg-white border border-gray-200">
-        <h3 class="text-lg font-semibold text-authority mb-3">
+        <h3 class="text-lg font-bold text-authority mb-3">
           Zonas en las que hemos acompañado a nuestros clientes
         </h3>
         <div class="grid md:grid-cols-3 gap-4 text-sm text-slate-700">
           <div>
-            <p class="font-semibold text-authority mb-1">Provincia de Sucumbíos</p>
-            <ul class="list-disc list-inside space-y-1 text-[0.9rem]">
+            <p class="font-bold text-authority mb-1">Provincia de Sucumbíos</p>
+            <ul class="list-disc list-inside space-y-1 text-[0.9rem] pl-4">
               <li>Shushufindi (atención principal)</li>
               <li>Lago Agrio</li>
               <li>Cántones aledaños vía audiencias virtuales</li>
             </ul>
           </div>
           <div>
-            <p class="font-semibold text-authority mb-1">Clientes empresariales</p>
-            <ul class="list-disc list-inside space-y-1 text-[0.9rem]">
+            <p class="font-bold text-authority mb-1">Clientes empresariales</p>
+            <ul class="list-disc list-inside space-y-1 text-[0.9rem] pl-4">
               <li>Comercios locales y PYMES</li>
               <li>Contratistas de servicios</li>
               <li>Empresas del sector petrolero y de servicios conexos</li>
             </ul>
           </div>
           <div>
-            <p class="font-semibold text-authority mb-1">Canales de atención</p>
-            <ul class="list-disc list-inside space-y-1 text-[0.9rem]">
+            <p class="font-bold text-authority mb-1">Canales de atención</p>
+            <ul class="list-disc list-inside space-y-1 text-[0.9rem] pl-4">
               <li>Entrevistas presenciales en oficina</li>
               <li>Videollamadas y audiencias remotas</li>
               <li>Seguimiento por correo y WhatsApp</li>
@@ -548,9 +543,9 @@
       </div>
     </section>
 
-    <!-- CTA INTERMEDIO -->
+    <!-- CTA INTERMEDIO - Fondo Authority para alto impacto -->
 <section id="cta-evaluar" class="reveal-on-scroll py-10">
-  <div class="tilt-card p-6 md:p-8 lg:p-9 bg-authority text-white shadow-xl">
+  <div class="tilt-card p-6 md:p-8 lg:p-10 text-white rounded-xl">
     <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
 
       <div class="space-y-3 md:space-y-4 max-w-xl">
@@ -558,7 +553,7 @@
           Tu caso merece más que una respuesta automática.
         </h2>
 
-        <p class="text-base leading-relaxed text-white">
+        <p class="text-base leading-relaxed text-slate-300">
           Cuéntanos qué está pasando. Analizaremos tu situación con atención, estrategia y claridad.
           Te mostraremos las rutas legales más realistas, sin falsas expectativas y sin tecnicismos.
         </p>
@@ -567,7 +562,7 @@
       <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
         <a
           href="mailto:Vasquez_ab@outlook.com?subject=Solicitud%20de%20evaluaci%C3%B3n%20de%20caso&body=Hola%2C%20quiero%20evaluar%20mi%20caso.%20Por%20favor%20cont%C3%A1cteme."
-          class="btn-primary btn-high-contrast w-full md:w-auto text-center font-semibold cta-pulse"
+          class="btn-primary btn-high-contrast w-full md:w-auto text-center font-bold cta-pulse"
         >
           Quiero evaluar mi caso
         </a>
@@ -577,13 +572,13 @@
   </div>
 </section>
 
-    <!-- CALCULADORA DE PENSIÓN ALIMENTICIA -->
-    <section id="calculadora-alimentos" class="reveal-on-scroll py-12 bg-secondary">
+    <!-- CALCULADORA DE PENSIÓN ALIMENTICIA - Fondo Suave -->
+    <section id="calculadora-alimentos" class="reveal-on-scroll py-12 bg-secondary rounded-xl">
       <div class="max-w-4xl mx-auto">
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
           <div>
-            <h2 class="section-title">Calculadora referencial de pensión alimenticia</h2>
-            <p class="text-sm md:text-base text-slate-700 mt-2">
+            <h2 class="section-title text-3xl">Calculadora referencial de pensión alimenticia</h2>
+            <p class="text-sm md:text-base text-slate-700 max-w-2xl mt-3">
               Esta herramienta es <span class="font-semibold">referencial</span> y tiene fines informativos. La pensión real debe
               fijarse según la tabla oficial vigente, la capacidad económica y las necesidades específicas del niño, niña o adolescente.
             </p>
@@ -596,7 +591,7 @@
         <div class="grid md:grid-cols-[1.1fr,0.9fr] gap-6 items-start">
           <!-- Formulario -->
           <div class="card bg-white border border-gray-200">
-            <h3 class="text-lg font-semibold text-authority mb-3">
+            <h3 class="text-lg font-bold text-authority mb-3">
               Calcular un monto aproximado
             </h3>
             <p class="text-xs text-slate-600 mb-4">
@@ -659,30 +654,30 @@
 
           <!-- Resultado -->
           <div id="resultado-pension" class="card bg-white border border-gray-200 text-sm text-slate-700">
-            <h3 class="text-lg font-semibold text-authority mb-2">Resultado referencial</h3>
+            <h3 class="text-lg font-bold text-authority mb-2">Resultado referencial</h3>
             <p class="text-xs text-slate-500 mb-4">
               Aquí se mostrará un cálculo aproximado basado en los datos ingresados.
             </p>
 
             <div id="resultado-pension-contenido" class="space-y-3 hidden">
               <p class="text-sm">
-                Ingreso considerado: <span id="res-ingreso" class="font-semibold text-authority"></span> USD
+                Ingreso considerado: <span id="res-ingreso" class="font-bold text-authority"></span> USD
               </p>
               <p class="text-sm">
-                Hijos/as beneficiarios: <span id="res-hijos" class="font-semibold text-authority"></span>
+                Hijos/as beneficiarios: <span id="res-hijos" class="font-bold text-authority"></span>
               </p>
               <p class="text-sm">
-                Porcentaje referencial aplicado: <span id="res-porcentaje" class="font-semibold text-authority"></span>
+                Porcentaje referencial aplicado: <span id="res-porcentaje" class="font-bold text-authority"></span>
               </p>
 
               <div class="border-t border-gray-200 pt-3 space-y-1">
-                <p class="text-sm">
+                <p class="text-sm font-bold text-authority">
                   Pensión total aproximada: 
-                  <span id="res-total" class="font-semibold text-authority"></span> USD/mes
+                  <span id="res-total" class="font-bold text-accent-gold text-lg"></span> USD/mes
                 </p>
                 <p class="text-sm">
                   Pensión aproximada por cada hijo/a:
-                  <span id="res-por-hijo" class="font-semibold text-authority"></span> USD/mes
+                  <span id="res-por-hijo" class="font-bold text-authority"></span> USD/mes
                 </p>
               </div>
 
@@ -708,15 +703,15 @@
     <section class="reveal-on-scroll py-12">
       <div class="max-w-5xl mx-auto">
         <h2 class="section-title mb-4">Guía rápida: qué llevar y qué esperar</h2>
-        <p class="text-sm md:text-base text-slate-700 max-w-3xl mb-6">
+        <p class="text-sm md:text-base text-slate-700 max-w-3xl mb-6 mt-3">
           Llegar preparado a la primera consulta ahorra tiempo y permite construir una estrategia más completa. Aquí
           encontrarás una lista práctica de documentos y recomendaciones según el tipo de caso.
         </p>
 
         <div class="grid md:grid-cols-3 gap-6 text-sm text-slate-700">
-          <div class="card bg-white border border-gray-200">
-            <h3 class="font-semibold text-authority mb-2 text-[0.95rem]">Casos de familia</h3>
-            <ul class="list-disc list-inside space-y-1 text-[0.85rem]">
+          <div class="card bg-secondary border border-gray-200 hover:bg-white">
+            <h3 class="font-bold text-authority mb-2 text-[0.95rem]">Casos de familia</h3>
+            <ul class="list-disc list-inside space-y-1 text-[0.85rem] pl-4">
               <li>Cédulas de los padres y de los hijos.</li>
               <li>Partidas de nacimiento actualizadas.</li>
               <li>Comprobantes de ingresos o roles de pago.</li>
@@ -724,9 +719,9 @@
               <li>Cualquier documento de acuerdos previos.</li>
             </ul>
           </div>
-          <div class="card bg-white border border-gray-200">
-            <h3 class="font-semibold text-authority mb-2 text-[0.95rem]">Casos penales</h3>
-            <ul class="list-disc list-inside space-y-1 text-[0.85rem]">
+          <div class="card bg-secondary border border-gray-200 hover:bg-white">
+            <h3 class="font-bold text-authority mb-2 text-[0.95rem]">Casos penales</h3>
+            <ul class="list-disc list-inside space-y-1 text-[0.85rem] pl-4">
               <li>Partes policiales o boletas de citación.</li>
               <li>Datos de la causa (número de proceso si lo tiene).</li>
               <li>Documentos o chats relevantes como evidencia.</li>
@@ -734,9 +729,9 @@
               <li>Información de audiencias ya realizadas.</li>
             </ul>
           </div>
-          <div class="card bg-white border border-gray-200">
-            <h3 class="font-semibold text-authority mb-2 text-[0.95rem]">Casos laborales y civiles</h3>
-            <ul class="list-disc list-inside space-y-1 text-[0.85rem]">
+          <div class="card bg-secondary border border-gray-200 hover:bg-white">
+            <h3 class="font-bold text-authority mb-2 text-[0.95rem]">Casos laborales y civiles</h3>
+            <ul class="list-disc list-inside space-y-1 text-[0.85rem] pl-4">
               <li>Contratos laborales o civiles firmados.</li>
               <li>Comprobantes de pagos, liquidaciones o facturas.</li>
               <li>Cartas de despido o comunicaciones formales.</li>
@@ -746,9 +741,9 @@
           </div>
         </div>
 
-        <div class="mt-8 card bg-white border border-gray-200 text-sm text-slate-700">
-          <h3 class="font-semibold text-authority mb-2">¿Qué ocurre normalmente en la primera consulta?</h3>
-          <ol class="list-decimal list-inside space-y-1 text-[0.9rem]">
+        <div class="mt-8 card bg-white border-accent-gold/50 border-2 text-sm text-slate-700">
+          <h3 class="font-bold text-authority mb-2">¿Qué ocurre normalmente en la primera consulta?</h3>
+          <ol class="list-decimal list-inside space-y-1 text-[0.9rem] pl-4">
             <li>Escuchamos tu versión completa de los hechos, sin juicios y con absoluta confidencialidad.</li>
             <li>Revisamos los documentos que traes y aclaramos tus principales dudas.</li>
             <li>Te explicamos posibles rutas legales, riesgos y tiempos aproximados del proceso.</li>
@@ -767,15 +762,15 @@
       <div class="grid md:grid-cols-[1.2fr,0.9fr] gap-8 items-start">
         <div>
           <h2 class="section-title">Sobre Vázquez Legal</h2>
-          <p class="text-sm md:text-base text-slate-700 mt-2">
+          <p class="text-sm md:text-base text-slate-700 mt-3">
             Somos un estudio jurídico que apuesta por una abogacía cercana, clara y profundamente responsable. No
             trabajamos con plantillas; cada caso se analiza como único, considerando el impacto real en tu vida.
           </p>
 
           <div class="mt-5 space-y-3 text-sm text-slate-700">
             <p>
-              Con más de <span class="font-semibold text-authority">15 años de experiencia</span> en litigios y asesoría, nuestro equipo reúne
-              especialistas en distintas áreas del derecho para construir estrategias integrales y consistentes.
+              Con más de <span class="font-bold text-authority">15 años de experiencia</span> en litigios y asesoría, nuestro equipo reúne
+              especialistas en distintas áreas del derecho para construir estrategias integrales y consistentemente.
             </p>
             <p>
               Nuestra filosofía es simple: <span class="italic">no prometer lo que no se puede cumplir</span> y acompañarte con honestidad,
@@ -784,21 +779,21 @@
           </div>
         </div>
 
-        <div class="card bg-white border border-gray-200">
+        <div class="card bg-secondary border border-gray-200">
           <div class="flex flex-col items-center text-center gap-3 mb-3">
-            <div class="h-20 w-20 rounded-3xl border border-accent-gold/70 bg-gray-100 shadow-lg flex items-center justify-center text-2xl font-bold text-accent-gold">
+            <div class="h-24 w-24 rounded-full border-4 border-accent-gold/70 bg-gray-100 shadow-xl flex items-center justify-center text-3xl font-extrabold text-accent-gold">
               VL
             </div>
             <div>
-              <p class="font-semibold text-base text-authority">Leidy Vázquez G. (Abogada)</p>
+              <p class="font-bold text-lg text-authority">Leidy Vázquez G. (Abogada)</p>
               <p class="text-xs text-slate-500">Directora del Estudio Jurídico</p>
             </div>
           </div>
-          <p class="text-sm text-slate-700 mb-3">
+          <p class="text-sm text-slate-700 mb-3 text-center">
             Abogada litigante especializada en Derecho Penal y Constitucional. Ha patrocinado casos de alta complejidad,
             combinando técnica jurídica y sensibilidad humana.
           </p>
-          <div class="text-[0.7rem] text-slate-500 space-y-1">
+          <div class="text-[0.7rem] text-slate-500 space-y-1 text-center border-t pt-3 mt-3">
             <p>Registro profesional N.° 12345 - Consejo de la Judicatura</p>
             <p>Miembro de la Asociación de Abogados del Ecuador</p>
           </div>
@@ -819,35 +814,44 @@
             </iframe>
           </div>
 
-          <div class="card bg-white border border-gray-200">
-            <p class="font-semibold text-authority mb-1">Datos de contacto</p>
+          <!-- BOTÓN GOOGLE MAPS -->
+          <a href="https://www.google.com/maps/dir/?api=1&destination=-0.18374929999999998,-76.65706599999999"
+             target="_blank"
+             class="btn-primary w-full justify-center text-sm font-semibold !rounded-lg"
+             style="box-shadow: 0 4px 10px rgba(38, 50, 56, 0.3);">
+             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M12 19.5v-7.5"/><circle cx="12" cy="10" r="3"/><path d="M12 21.7c-4.9 0-9-3.9-9-8.7A9 9 0 0 1 12 3a9 9 0 0 1 9 9.9c0 4.8-4.1 8.7-9 8.7z"/></svg>
+             Cómo llegar a la oficina (Google Maps)
+          </a>
+
+          <div class="card bg-secondary border border-gray-200">
+            <p class="font-bold text-authority text-lg mb-2">Datos de contacto</p>
             <p class="text-slate-700 text-sm">
               Av. Río Aguarico y 11 de Julio, Barrio Amazonas<br>
               Shushufindi, Ecuador
             </p>
-            <div class="grid grid-cols-2 gap-3 mt-4 text-[0.8rem] text-slate-700">
+            <div class="grid grid-cols-2 gap-3 mt-4 text-[0.85rem] text-slate-700">
               <div>
-                <p class="font-semibold text-authority">Teléfono / WhatsApp</p>
+                <p class="font-bold text-authority">Teléfono / WhatsApp</p>
                 <p>0987348079</p>
               </div>
               <div>
-                <p class="font-semibold text-authority">Correo</p>
+                <p class="font-bold text-authority">Correo</p>
                 <p>Vasquez_ab@outlook.com</p>
               </div>
               <div>
-                <p class="font-semibold text-authority">Horario</p>
+                <p class="font-bold text-authority">Horario</p>
                 <p>Lun - Vie: 08h30 - 18h30</p>
                 <p>Sáb: con cita previa</p>
               </div>
               <div>
-                <p class="font-semibold text-authority">Redes sociales</p>
+                <p class="font-bold text-authority">Redes sociales</p>
                 <p>@vazquezlegal</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- FORMULARIO -> MAILTO CON JS -->
+        <!-- FORMULARIO -> MAILTO CON JS (CON CARGA Y MEJOR FEEDBACK) -->
         <div class="card bg-white border border-gray-200 order-1 md:order-2">
             <h2 class="text-2xl font-bold text-authority mb-4">
               Agenda tu Consulta Estratégica (Email)
@@ -858,26 +862,26 @@
             
           <form id="contact-form-main" class="space-y-4 text-sm">
             <div>
-              <label for="nombre" class="block mb-1 text-slate-700">Nombre completo</label>
+              <label for="nombre" class="block mb-1 text-slate-700 font-semibold">Nombre completo</label>
               <input id="nombre" name="Nombre" type="text" required
                      class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label for="telefono" class="block mb-1 text-slate-700">Teléfono / WhatsApp</label>
+                <label for="telefono" class="block mb-1 text-slate-700 font-semibold">Teléfono / WhatsApp</label>
                 <input id="telefono" name="Telefono" type="tel" required
                        class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
               </div>
               <div>
-                <label for="email" class="block mb-1 text-slate-700">Correo electrónico</label>
+                <label for="email" class="block mb-1 text-slate-700 font-semibold">Correo electrónico</label>
                 <input id="email" name="Email" type="email" required
                        class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
               </div>
             </div>
 
             <div>
-              <label for="tipo" class="block mb-1 text-slate-700">Tipo de servicio legal</label>
+              <label for="tipo" class="block mb-1 text-slate-700 font-semibold">Tipo de servicio legal</label>
               <select id="tipo" name="Tipo_Servicio"
                       class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
                 <option value="">Selecciona una opción</option>
@@ -890,14 +894,14 @@
             </div>
 
             <div>
-              <label for="detalles" class="block mb-1 text-slate-700">Cuéntanos brevemente tu caso</label>
+              <label for="detalles" class="block mb-1 text-slate-700 font-semibold">Cuéntanos brevemente tu caso</label>
               <textarea id="detalles" name="Detalles_Caso" rows="4" required
                         class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority"
                         placeholder="No incluyas datos extremadamente sensibles en este primer contacto."></textarea>
             </div>
 
             <div>
-              <label for="urgencia" class="block mb-1 text-slate-700">Urgencia del caso</label>
+              <label for="urgencia" class="block mb-1 text-slate-700 font-semibold">Urgencia del caso</label>
               <select id="urgencia" name="Urgencia"
                       class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority">
                 <option value="">Selecciona una opción</option>
@@ -907,8 +911,9 @@
               </select>
             </div>
 
-            <button type="submit" class="btn-primary w-full justify-center">
-              <span>Preparar correo con mi información</span>
+            <button type="submit" id="submit-contact-form" class="btn-primary w-full justify-center">
+              <span id="button-text">Preparar correo con mi información</span>
+              <div id="button-spinner" class="spinner hidden"></div>
             </button>
 
             <p class="text-[11px] text-slate-500 mt-2">
@@ -919,13 +924,13 @@
       </div>
     </section>
     
-    <!-- CIERRE FINAL => MAIL -->
-    <section id="final-cta" class="reveal-on-scroll py-16 bg-authority text-white">
+    <!-- CIERRE FINAL => MAIL - Fondo Authority para alto impacto -->
+    <section id="final-cta" class="reveal-on-scroll py-16 bg-authority text-white rounded-xl">
         <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">
                 La decisión más importante para tu caso es <span class="text-accent-gold">hoy.</span>
             </h2>
-            <p class="text-lg text-slate-100 mb-8">
+            <p class="text-lg text-slate-300 mb-8">
                 No posponga la seguridad jurídica. Un correo inmediato al estudio es el primer paso para tomar control de su situación legal, con la ética y el rigor que su caso merece.
             </p>
             
@@ -939,15 +944,15 @@
 
             <div class="text-sm text-slate-200 space-y-1">
                 <p>
-                    <span class="font-semibold text-white">Dirección:</span> Av. Río Aguarico y 11 de Julio, Barrio Amazonas, Shushufindi
+                    <span class="font-bold text-white">Dirección:</span> Av. Río Aguarico y 11 de Julio, Barrio Amazonas, Shushufindi
                 </p>
                 <p class="text-slate-200">
-                    <span class="font-semibold text-white">WhatsApp:</span> 0987348079
+                    <span class="font-bold text-white">WhatsApp:</span> 0987348079
                     <span class="mx-2">|</span>
-                    <span class="font-semibold text-white">Correo:</span> Vasquez_ab@outlook.com
+                    <span class="font-bold text-white">Correo:</span> Vasquez_ab@outlook.com
                 </p>
                 <p class="text-slate-200">
-                    <span class="font-semibold text-white">Horario:</span> Lun-Vie 08h30 - 18h30
+                    <span class="font-bold text-white">Horario:</span> Lun-Vie 08h30 - 18h30
                 </p>
             </div>
         </div>
@@ -974,7 +979,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12.03 2.004c-5.503 0-9.976 4.47-9.976 9.974 0 1.954.557 3.863 1.62 5.56L1.004 22.996l6.233-1.637a9.986 9.986 0 0 0 4.792 1.134c5.504 0 9.976-4.47 9.976-9.974.001-5.504-4.472-9.977-9.976-9.977zM17.587 15.656c-.287.712-.993 1.157-1.745 1.157-.001 0-.001 0-.002 0-.295 0-.58-.093-.815-.279-1.096-.867-2.735-1.579-4.375-1.933a.475.475 0 0 1-.225-.038c-.066-.017-.134-.035-.205-.055-.83-.244-1.69-.607-2.485-1.077-.184-.108-.346-.239-.486-.395-.69-.76-.902-1.642-.902-2.522 0-1.127.57-2.112 1.547-2.766.425-.285.875-.427 1.328-.427.247 0 .493.037.728.113.332.108.571.37.669.704l.583 1.905c.105.344.025.727-.225 1.013-.198.223-.423.334-.633.376-.024.005-.049.006-.075.006-.214 0-.427-.086-.593-.257-.14-.141-.318-.282-.505-.38-.179-.095-.367-.143-.559-.143-.192 0-.385.048-.559.143-.14.076-.282.207-.406.395-.494.757-.123 1.706.371 2.385.505.679 1.152 1.348 2.302 1.831 1.149.483 2.302.733 3.454.755.025.001.05.002.075.002.664 0 1.298-.255 1.831-.738.169-.153.303-.357.391-.567.147-.32.062-.68-.198-1.012l-.583-1.905c-.097-.334-.02-1.072.71-1.398.423-.194.887-.335 1.325-.335.216 0 .43.037.64.113.882.352 1.696.868 2.296 1.488.082.083.176.166.275.253.211.189.373.402.486.634.332.74.015 1.76-.696 2.477z"/></svg>
   </a>
 
-  <!-- MODAL (por si luego lo usas; ahora no lo abre ningún botón) -->
+  <!-- MODAL (Mantengo el modal aunque no se use en el diseño actual) -->
   <div id="modal-cita-backdrop" class="modal-backdrop hidden opacity-0 transition-opacity duration-200">
     <div id="modal-cita-panel" class="modal-panel bg-white text-authority">
       <div class="flex items-start justify-between gap-4 mb-3">
@@ -982,7 +987,7 @@
           <p class="text-[0.7rem] uppercase tracking-[0.2em] text-gray-500 mb-1">
             Agenda tu consulta
           </p>
-          <h3 class="text-lg font-semibold text-authority">
+          <h3 class="text-lg font-bold text-authority">
             Programa una llamada con nuestro equipo legal (Email)
           </h3>
         </div>
@@ -1055,7 +1060,7 @@
             alertElement.classList.remove('opacity-100', 'translate-y-0');
             alertElement.classList.add('opacity-0', '-translate-y-5');
             setTimeout(() => notification.remove(), 300);
-        }, 5000);
+        }, 8000); // Aumento la duración a 8 segundos para que el usuario lea la instrucción de enviar
     }
 
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -1103,6 +1108,22 @@
     function handleMailtoSubmission(event, formId, isModal = false) {
         event.preventDefault(); 
         
+        let submitButton;
+        let buttonText;
+        let buttonSpinner;
+
+        if (formId === 'contact-form-main') {
+            submitButton = document.getElementById('submit-contact-form');
+            buttonText = document.getElementById('button-text');
+            buttonSpinner = document.getElementById('button-spinner');
+
+            if (submitButton) {
+                submitButton.disabled = true;
+                buttonText.classList.add('hidden');
+                buttonSpinner.classList.remove('hidden');
+            }
+        }
+        
         let subject;
         let bodyParts = [];
         let formElement = event.target;
@@ -1117,6 +1138,13 @@
             const detalles = getRequiredValue('Detalles_Caso');
 
             if (!nombre || !telefono || !email || !detalles) {
+                 // Si falla la validación, restaurar botón y salir
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    buttonText.classList.remove('hidden');
+                    buttonSpinner.classList.add('hidden');
+                }
+                 showNotification('Por favor, complete todos los campos requeridos.', null);
                  return;
             }
 
@@ -1168,15 +1196,22 @@
         const emailBody = encodeURIComponent(bodyParts.join('\n'));
         const mailtoLink = `mailto:${lawyerEmail}?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
 
+        // Abrir el cliente de correo
         window.location.href = mailtoLink;
         
-        const successMsg = isModal 
-            ? '¡Solicitud de cita generada! Revisa tu correo para confirmar el envío.'
-            : '¡Correo preparado! Revisa tu cliente de correo y envíalo a Vázquez Legal.';
+        // Mensaje de éxito/instrucción
+        const successMsg = '¡Correo preparado! **IMPORTANTE**: Revise su cliente de correo y **DEBE ENVIAR** el mensaje para que llegue a Vázquez Legal.';
 
+        // Pequeño retardo para dar tiempo a que se inicie el cliente de correo antes de mostrar la notificación
         setTimeout(() => {
             showNotification(successMsg, isModal ? 'modal-cita' : null);
-        }, 100);
+            // Restaurar botón después de mostrar la notificación (solo para el formulario principal)
+            if (submitButton) {
+                submitButton.disabled = false;
+                buttonText.classList.remove('hidden');
+                buttonSpinner.classList.add('hidden');
+            }
+        }, 500);
     }
 
     // Calculadora de pensión alimenticia (referencial)
@@ -1200,9 +1235,9 @@
 
       // Ajuste por "nivel" referencial
       if (nivel === 'minimo') {
-        basePorcentaje = basePorcentaje - 0.03; // un poco menor
+        basePorcentaje = basePorcentaje * 0.9; // 10% menos que el base
       } else if (nivel === 'alto') {
-        basePorcentaje = basePorcentaje + 0.03; // un poco mayor
+        basePorcentaje = basePorcentaje * 1.1; // 10% más que el base
       }
 
       if (basePorcentaje < 0) basePorcentaje = 0;
@@ -1265,3 +1300,4 @@
   </script>
 </body>
 </html>
+
