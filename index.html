@@ -30,7 +30,6 @@
     .text-accent-gold { color: var(--color-accent); }
     .border-accent-gold { border-color: var(--color-accent); }
     .bg-secondary { background-color: var(--color-secondary); }
-    .bg-accent-gold { background-color: var(--color-accent); }
 
     /* HEADER OSCURO */
     header {
@@ -40,7 +39,7 @@
         backdrop-filter: blur(8px);
     }
     .logo-nav {
-      height: 8rem;
+      height: 8rem;   /* logo grande */
       width: auto;
     }
     .nav-link {
@@ -69,12 +68,12 @@
     }
     
     .hero-visual {
-        height: 400px; 
+        height: 420px; 
         background-image: url('https://i.postimg.cc/C1G2Vccs/06cf7e3a_558e_4dc2_8f3c_c6c30a11acc2.jpg');
         background-size: cover;
-        background-position: center;
-        border-radius: 0.5rem;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        background-position: center top;
+        border-radius: 0.75rem;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
     }
     
     /* CARDS */
@@ -91,22 +90,18 @@
         transform: translateY(-2px);
     }
     
-    /* IMPORTANTE: no tapa el fondo del CTA oscuro */
-  .tilt-card {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-  border-radius: 0.75rem;
-  border: 1px solid #111827;
-  background-color: var(--color-authority);
-  color: #F9FAFB;
-  transition: none;
-  transform: none;
-}
-.tilt-card p {
-  color: #E5E7EB;
-}.tilt-card:hover {
+    /* IMPORTANTE: tarjeta oscura para CTA */
+    .tilt-card {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+      border-radius: 0.75rem;
+      border: 1px solid #111827;
+      background-color: var(--color-authority);
+      color: #F9FAFB;
+      transition: none;
       transform: none;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      border-color: #D1D5DB;
+    }
+    .tilt-card p {
+      color: #E5E7EB;
     }
 
     /* BOTONES */
@@ -264,7 +259,7 @@
       <nav class="hidden md:flex items-center gap-7">
         <a href="#confianza" class="nav-link transition-colors">Por qué elegirnos</a>
         <a href="#servicios" class="nav-link transition-colors">Servicios</a>
-        <a href="#calculadora-pension" class="nav-link transition-colors">Calculadora de pensión</a>
+        <a href="#calculadora" class="nav-link transition-colors">Calculadora</a>
         <a href="#testimonios" class="nav-link transition-colors">Testimonios</a>
         <a href="#nosotros" class="nav-link transition-colors">Nosotros</a>
         <a href="#contacto" class="nav-link transition-colors">Contacto</a>
@@ -316,14 +311,6 @@
           </div>
         </div>
         
-        <!-- Imagen HERO -->
-        <div class="mt-8 lg:mt-0 lg:hidden">
-          <img 
-            src="https://i.postimg.cc/C1G2Vccs/06cf7e3a_558e_4dc2_8f3c_c6c30a11acc2.jpg" 
-            alt="Vázquez Legal - Atención jurídica profesional"
-            class="w-full rounded-xl shadow-2xl object-cover"
-          />
-        </div>
         <div class="hidden lg:block hero-visual shadow-2xl"></div>
       </div>
     </section>
@@ -404,9 +391,6 @@
             <li>Fijación y reajuste de pensiones.</li>
             <li>Tenencia, visitas y medidas de protección.</li>
           </ul>
-          <a href="#calculadora-pension" class="inline-flex items-center text-xs mt-1 text-accent-gold underline underline-offset-2">
-            Ir a la calculadora de pensión alimenticia
-          </a>
         </article>
 
         <article class="card hover:translate-y-[-4px] transition-transform duration-200">
@@ -437,134 +421,116 @@
       </div>
     </section>
 
-    <!-- CALCULADORA PENSIÓN ALIMENTICIA -->
-    <form id="form-calculadora" class="space-y-4 text-sm">
+    <!-- CALCULADORA DE PENSIÓN ALIMENTICIA -->
+    <section id="calculadora" class="space-y-8 reveal-on-scroll pt-10 pb-16">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <h2 class="section-title">Calculadora referencial de pensión alimenticia</h2>
+          <p class="text-sm md:text-base text-slate-700 max-w-2xl mt-2">
+            Esta herramienta te permite estimar, de forma referencial, el monto de pensión alimenticia
+            según la tabla mínima vigente en Ecuador. No reemplaza el cálculo oficial del juez ni la
+            calculadora SUPA del Consejo de la Judicatura.
+          </p>
+        </div>
+      </div>
 
-  <div>
-    <label class="block mb-1 text-slate-700">Ingreso mensual del alimentante (USD)</label>
-    <input id="ingreso-alimentante" type="number" min="0" step="0.01" required
-      class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold">
-    <p class="text-[11px] text-slate-500 mt-1">Ingreso neto aproximado después del IESS.</p>
-  </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- LADO IZQUIERDO: FORMULARIO -->
+        <div class="card bg-white">
+          <h3 class="text-lg font-semibold mb-3 text-authority">
+            Calcular monto aproximado
+          </h3>
 
-  <div>
-    <label class="block mb-1 text-slate-700">Número de hijos beneficiarios</label>
-    <input id="numero-hijos" type="number" min="1" step="1" required
-      class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold">
-  </div>
+          <form id="form-calculadora" class="space-y-4 text-sm">
+            <div>
+              <label class="block mb-1 text-slate-700">
+                Ingreso mensual del alimentante (USD)
+              </label>
+              <input id="ingreso-alimentante" type="number" min="0" step="0.01" required
+                class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold">
+              <p class="text-[11px] text-slate-500 mt-1">
+                Ingreso neto aproximado, luego del aporte a la seguridad social.
+              </p>
+            </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div>
-      <label class="block mb-1 text-slate-700">Edad del hijo de mayor edad</label>
-      <select id="grupo-edad"
-        class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold">
-        <option value="0-2">De 0 a 2 años 11 meses</option>
-        <option value="3+">De 3 años en adelante</option>
-      </select>
-    </div>
+            <div>
+              <label class="block mb-1 text-slate-700">
+                Número de hijos beneficiarios
+              </label>
+              <input id="numero-hijos" type="number" min="1" step="1" required
+                class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold">
+            </div>
 
-    <div>
-      <label class="block mb-1 text-slate-700">Discapacidad (algún hijo)</label>
-      <select id="rango-discapacidad"
-        class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold">
-        <option value="ninguna">Sin discapacidad</option>
-        <option value="30-49">30% a 49%</option>
-        <option value="50-74">50% a 74%</option>
-        <option value="75-100">75% a 100%</option>
-      </select>
-    </div>
-  </div>
-
-  <button type="submit" class="btn-primary w-full justify-center">
-    Calcular pensión referencial
-  </button>
-
-</form>
-
-<div class="mt-4 border border-accent-gold/40 rounded-lg p-4">
-  <p class="text-sm font-semibold text-authority mb-2">Resultado aproximado:</p>
-
-  <p class="text-sm text-slate-700">
-    Nivel aplicado de la tabla: <span id="nivel-calculado">—</span>
-  </p>
-
-  <p class="text-sm text-slate-700">
-    Pensión total mensual: <span id="resultado-total">—</span>
-  </p>
-
-  <p class="text-sm text-slate-700">
-    Pensión referencial por hijo: <span id="resultado-por-hijo">—</span>
-  </p>
-</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block mb-1 text-slate-700">
+                  Edad del hijo de mayor edad
+                </label>
+                <select id="grupo-edad"
+                  class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold">
+                  <option value="0-2">De 0 a 2 años 11 meses</option>
+                  <option value="3+">De 3 años en adelante</option>
+                </select>
+              </div>
 
               <div>
-                <label for="numero-hijos" class="block mb-1 text-slate-700">
-                  Número de hijos beneficiarios
+                <label class="block mb-1 text-slate-700">
+                  Discapacidad (algún hijo)
                 </label>
-                <input
-                  id="numero-hijos"
-                  type="number"
-                  min="1"
-                  step="1"
-                  required
-                  class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority"
-                  placeholder="Ej. 2"
-                >
-                <p class="text-[11px] text-slate-500 mt-1">
-                  Se usará para mostrar un valor referencial por cada hijo.
-                </p>
+                <select id="rango-discapacidad"
+                  class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold">
+                  <option value="ninguna">Sin discapacidad</option>
+                  <option value="30-49">30% a 49%</option>
+                  <option value="50-74">50% a 74%</option>
+                  <option value="75-100">75% a 100%</option>
+                </select>
               </div>
             </div>
 
             <button type="submit" class="btn-primary w-full justify-center">
               Calcular pensión referencial
             </button>
-
-            <div class="mt-4 rounded-lg bg-gray-50 border border-dashed border-accent-gold px-3 py-3 text-xs text-slate-700">
-              <p class="font-semibold mb-1 text-authority">Resultado aproximado:</p>
-              <p class="mb-1">
-                Pensión total mensual: <span id="resultado-total" class="font-semibold text-accent-gold">—</span> USD
-              </p>
-              <p>
-                Pensión referencial por hijo: <span id="resultado-por-hijo" class="font-semibold text-accent-gold">—</span> USD
-              </p>
-            </div>
           </form>
+
+          <div class="mt-4 border border-accent-gold/40 rounded-lg p-4 bg-secondary">
+            <p class="text-sm font-semibold text-authority mb-2">Resultado aproximado:</p>
+            <p class="text-xs text-slate-500 mb-2">
+              Nivel aplicado de la tabla: <span id="nivel-calculado">—</span>
+            </p>
+            <p class="text-sm text-slate-700">
+              Pensión total mensual: <span id="resultado-total">—</span>
+            </p>
+            <p class="text-sm text-slate-700">
+              Pensión referencial por hijo: <span id="resultado-por-hijo">—</span>
+            </p>
+          </div>
         </div>
 
-        <!-- Ayuda / referencia -->
-        <div class="card bg-white border border-gray-200 text-sm space-y-3">
-          <p class="font-semibold text-authority">Importante</p>
-          <ul class="list-disc list-inside text-slate-700 space-y-1 text-[13px]">
-            <li>
-              Esta calculadora es <span class="font-semibold">referencial</span> y no reemplaza la
-              <span class="font-semibold">Tabla de Pensiones Alimenticias Mínimas</span> ni la decisión de un juez.
-            </li>
-            <li>
-              La tabla oficial se basa en niveles de ingreso, número de hijos, edad y, en algunos casos, discapacidad del alimentado.
-            </li>
-            <li>
-              Para cálculos exactos puedes usar la calculadora oficial SUPA del Consejo de la Judicatura o consultar directamente con
-              Vázquez Legal.
-            </li>
+        <!-- LADO DERECHO: EXPLICACIÓN -->
+        <div class="card bg-white">
+          <h3 class="text-lg font-semibold mb-3 text-authority">Importante</h3>
+          <ul class="list-disc list-inside text-sm text-slate-700 space-y-1 mb-4">
+            <li>Esta calculadora es referencial y no reemplaza la Tabla de Pensiones Alimenticias Mínimas ni la decisión de un juez.</li>
+            <li>La tabla oficial considera niveles de ingreso, número de hijos, edad y, en ciertos casos, discapacidad.</li>
+            <li>Para cálculos exactos se debe usar la calculadora oficial SUPA del Consejo de la Judicatura o acudir a asesoría profesional.</li>
           </ul>
 
-          <div class="mt-3 space-y-2 text-[12px] text-slate-600">
-            <p class="font-semibold text-authority">Recursos útiles:</p>
-            <p>
-              • Tabla de pensiones alimenticias mínimas (Consejo de la Judicatura) – PDF oficial.<br>
-              • Calculadora SUPA en línea para obtener el porcentaje aplicable.
-            </p>
-            <p class="mt-2">
-              Si tienes dudas sobre qué porcentaje corresponde a tu caso, agenda una consulta y revisamos tu situación paso a paso.
-            </p>
-            <a
-              href="mailto:Vasquez_ab@outlook.com?subject=Consulta%20sobre%20pensi%C3%B3n%20alimenticia&body=Hola%2C%20quiero%20asesor%C3%ADa%20sobre%20el%20c%C3%A1lculo%20de%20pensi%C3%B3n%20alimenticia.%20Por%20favor%20cont%C3%A1cteme."
-              class="inline-flex mt-2 text-[12px] font-semibold text-accent-gold underline underline-offset-2"
-            >
-              Solicitar asesoría legal en pensión alimenticia
-            </a>
-          </div>
+          <p class="text-sm font-semibold text-authority mb-2">Recursos útiles:</p>
+          <ul class="list-disc list-inside text-sm text-slate-700 space-y-1 mb-4">
+            <li>Tabla de pensiones alimenticias mínimas (Consejo de la Judicatura).</li>
+            <li>Calculadora SUPA en línea para verificar el porcentaje exacto aplicable a tu caso.</li>
+          </ul>
+
+          <p class="text-sm text-slate-700 mb-3">
+            Si tienes dudas sobre qué porcentaje corresponde a tu situación, agenda una consulta con Vázquez Legal
+            y revisamos tu caso paso a paso.
+          </p>
+
+          <a
+            href="mailto:Vasquez_ab@outlook.com?subject=Asesor%C3%ADa%20legal%20en%20pensi%C3%B3n%20alimenticia&body=Hola%2C%20necesito%20asesor%C3%ADa%20en%20un%20tema%20de%20pensi%C3%B3n%20alimenticia.%20Por%20favor%20cont%C3%A1cteme."
+            class="btn-outline w-full justify-center">
+            Solicitar asesoría legal en pensión alimenticia
+          </a>
         </div>
       </div>
     </section>
@@ -599,30 +565,30 @@
       </div>
     </section>
 
- <!-- CTA INTERMEDIO -->
-<section class="reveal-on-scroll py-10">
-  <div class="tilt-card p-6 md:p-8 lg:p-9">
-    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-      <div class="space-y-2 md:space-y-3 max-w-xl">
-        <h2 class="text-2xl md:text-3xl font-bold">
-          Tu caso merece más que una respuesta automática.
-        </h2>
-        <p class="text-sm md:text-base max-w-xl">
-          Cuéntanos qué está pasando. Analizaremos tu situación de forma personalizada y te propondremos las rutas
-          legales más realistas, sin falsas expectativas.
-        </p>
+    <!-- CTA INTERMEDIO -->
+    <section class="reveal-on-scroll py-10">
+      <div class="tilt-card p-6 md:p-8 lg:p-9">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="space-y-2 md:space-y-3 max-w-xl">
+            <h2 class="text-2xl md:text-3xl font-bold">
+              Tu caso merece más que una respuesta automática.
+            </h2>
+            <p class="text-sm md:text-base max-w-xl">
+              Cuéntanos qué está pasando. Analizaremos tu situación de forma personalizada y te propondremos las rutas
+              legales más realistas, sin falsas expectativas.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+            <!-- MAIL -->
+            <a
+              href="mailto:Vasquez_ab@outlook.com?subject=Solicitud%20de%20evaluaci%C3%B3n%20de%20caso&body=Hola%2C%20quiero%20evaluar%20mi%20caso.%20Por%20favor%20cont%C3%A1cteme."
+              class="btn-primary cta-pulse w-full text-center btn-high-contrast">
+              <span class="whitespace-nowrap">Quiero evaluar mi caso</span>
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-        <a
-          href="mailto:Vasquez_ab@outlook.com?subject=Solicitud%20de%20evaluaci%C3%B3n%20de%20caso&body=Hola%2C%20quiero%20evaluar%20mi%20caso.%20Por%20favor%20cont%C3%A1cteme."
-          class="btn-primary cta-pulse w-full md:w-auto text-center btn-high-contrast"
-        >
-          <span class="whitespace-nowrap">Quiero evaluar mi caso</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <!-- CONTACTO + MAPA -->
     <section id="contacto" class="space-y-10 reveal-on-scroll pt-10 pb-16">
@@ -635,6 +601,15 @@
               referrerpolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.479586178783!2d-76.65706599999999!3d-0.18374929999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d3c015b3c467e7%3A0xc6657982f1b0a50!2sAv.%20R%C3%ADo%20Aguarico%20y%2011%20de%20Julio%2C%20Shushufindi!5e0!3m2!1sen!2sec!4v1700000000000">
             </iframe>
+          </div>
+
+          <div class="mt-3">
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=-0.1837493,-76.657066"
+              target="_blank"
+              class="btn-outline w-full justify-center">
+              Cómo llegar a Vázquez Legal
+            </a>
           </div>
 
           <div class="card bg-white border border-gray-200">
@@ -828,7 +803,7 @@
     </div>
   </footer>
 
-  <!-- WHATSAPP FLOTANTE -->
+  <!-- ÚNICO BOTÓN CON NÚMERO: WHATSAPP -->
   <a href="https://wa.me/593987348079?text=Hola,%20necesito%20asesor%C3%ADa%20legal%20urgente%20en%20Shushufindi."
      target="_blank"
      class="floating-whatsapp"
@@ -836,7 +811,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12.03 2.004c-5.503 0-9.976 4.47-9.976 9.974 0 1.954.557 3.863 1.62 5.56L1.004 22.996l6.233-1.637a9.986 9.986 0 0 0 4.792 1.134c5.504 0 9.976-4.47 9.976-9.974.001-5.504-4.472-9.977-9.976-9.977zM17.587 15.656c-.287.712-.993 1.157-1.745 1.157-.001 0-.001 0-.002 0-.295 0-.58-.093-.815-.279-1.096-.867-2.735-1.579-4.375-1.933a.475.475 0 0 1-.225-.038c-.066-.017-.134-.035-.205-.055-.83-.244-1.69-.607-2.485-1.077-.184-.108-.346-.239-.486-.395-.69-.76-.902-1.642-.902-2.522 0-1.127.57-2.112 1.547-2.766.425-.285.875-.427 1.328-.427.247 0 .493.037.728.113.332.108.571.37.669.704l.583 1.905c.105.344.025.727-.225 1.013-.198.223-.423.334-.633.376-.024.005-.049.006-.075.006-.214 0-.427-.086-.593-.257-.14-.141-.318-.282-.505-.38-.179-.095-.367-.143-.559-.143-.192 0-.385.048-.559.143-.14.076-.282.207-.406.395-.494.757-.123 1.706.371 2.385.505.679 1.152 1.348 2.302 1.831 1.149.483 2.302.733 3.454.755.025.001.05.002.075.002.664 0 1.298-.255 1.831-.738.169-.153.303-.357.391-.567.147-.32.062-.68-.198-1.012l-.583-1.905c-.097-.334-.02-1.072.71-1.398.423-.194.887-.335 1.325-.335.216 0 .43.037.64.113.882.352 1.696.868 2.296 1.488.082.083.176.166.275.253.211.189.373.402.486.634.332.74.015 1.76-.696 2.477z"/></svg>
   </a>
 
-  <!-- MODAL -->
+  <!-- MODAL (por si luego lo usas; ahora no lo abre ningún botón) -->
   <div id="modal-cita-backdrop" class="modal-backdrop hidden opacity-0 transition-opacity duration-200">
     <div id="modal-cita-panel" class="modal-panel bg-white text-authority">
       <div class="flex items-start justify-between gap-4 mb-3">
@@ -1041,6 +1016,104 @@
         }, 100);
     }
 
+    // === CALCULADORA DE PENSIÓN ECUADOR 2025 ===
+    const SBU = 470;
+
+    function obtenerNivelTabla(ingreso) {
+      const sbu = ingreso / SBU;
+
+      if (sbu >= 1 && sbu <= 1.25) return 1;
+      if (sbu > 1.25 && sbu <= 3) return 2;
+      if (sbu > 3 && sbu <= 4) return 3;
+      if (sbu > 4 && sbu <= 6.5) return 4;
+      if (sbu > 6.5 && sbu <= 9) return 5;
+      if (sbu > 9) return 6;
+
+      return null;
+    }
+
+    function obtenerPorcentajeBase(nivel, hijos, edadGrupo) {
+      const es0a2 = edadGrupo === "0-2";
+
+      switch (nivel) {
+        case 1:
+          if (hijos <= 1) return es0a2 ? 28.12 : 29.49;
+          if (hijos === 2) return es0a2 ? 39.71 : 43.13;
+          return es0a2 ? 52.18 : 54.23;
+        case 2:
+          if (hijos <= 1) return es0a2 ? 34.84 : 36.96;
+          if (hijos === 2) return es0a2 ? 47.45 : 49.51;
+          return es0a2 ? 47.45 : 49.51;
+        case 3:
+          return es0a2 ? 38.49 : 40.83;
+        case 4:
+          return es0a2 ? 39.79 : 42.21;
+        case 5:
+          return es0a2 ? 41.14 : 43.64;
+        case 6:
+          return es0a2 ? 42.53 : 45.12;
+      }
+    }
+
+    function obtenerPorcentajeDiscapacidad(nivel, rango) {
+      if (rango === "ninguna") return 0;
+
+      const tabla = {
+        1: { "30-49": 4.56, "50-74": 5.23, "75-100": 6.63 },
+        2: { "30-49": 10.68, "50-74": 12.26, "75-100": 15.55 },
+        3: { "30-49": 18.23, "50-74": 20.92, "75-100": 26.53 },
+        4: { "30-49": 25.54, "50-74": 29.30, "75-100": 37.16 },
+        5: { "30-49": 30.43, "50-74": 34.92, "75-100": 44.28 },
+        6: { "30-49": 30.43, "50-74": 34.92, "75-100": 44.28 }
+      };
+
+      return tabla[nivel]?.[rango] || 0;
+    }
+
+    function configurarCalculadoraPension() {
+      const ingreso = document.getElementById("ingreso-alimentante");
+      const hijos = document.getElementById("numero-hijos");
+      const edad = document.getElementById("grupo-edad");
+      const discapacidad = document.getElementById("rango-discapacidad");
+
+      const nivelSpan = document.getElementById("nivel-calculado");
+      const totalSpan = document.getElementById("resultado-total");
+      const porHijoSpan = document.getElementById("resultado-por-hijo");
+      const form = document.getElementById("form-calculadora");
+
+      if (!form) return;
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const ing = parseFloat(ingreso.value);
+        const num = parseInt(hijos.value);
+        const edadGrupo = edad.value;
+        const disc = discapacidad.value;
+
+        if (!ing || ing <= 0 || !num || num <= 0) return;
+
+        const nivel = obtenerNivelTabla(ing);
+        if (!nivel) {
+          nivelSpan.textContent = "Por debajo de 1 SBU (no aplica tabla)";
+          totalSpan.textContent = "—";
+          porHijoSpan.textContent = "—";
+          return;
+        }
+
+        const base = obtenerPorcentajeBase(nivel, num, edadGrupo) || 0;
+        const extra = obtenerPorcentajeDiscapacidad(nivel, disc) || 0;
+        const porcentajeFinal = base + extra;
+
+        const total = ing * (porcentajeFinal / 100);
+        const porHijo = total / num;
+
+        nivelSpan.textContent = `Nivel ${nivel}`;
+        totalSpan.textContent = total.toFixed(2) + " USD";
+        porHijoSpan.textContent = porHijo.toFixed(2) + " USD";
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         const mainForm = document.getElementById('contact-form-main');
         if (mainForm) {
@@ -1052,107 +1125,8 @@
             modalForm.addEventListener('submit', (e) => handleMailtoSubmission(e, 'modal-form', true));
         }
 
-        // Calculadora de pensión alimenticia
-       // === CALCULADORA DE PENSIÓN ECUADOR 2025 ===
-const SBU = 470;
-
-function obtenerNivelTabla(ingreso) {
-  const sbu = ingreso / SBU;
-
-  if (sbu >= 1 && sbu <= 1.25) return 1;
-  if (sbu > 1.25 && sbu <= 3) return 2;
-  if (sbu > 3 && sbu <= 4) return 3;
-  if (sbu > 4 && sbu <= 6.5) return 4;
-  if (sbu > 6.5 && sbu <= 9) return 5;
-  if (sbu > 9) return 6;
-
-  return null;
-}
-
-function obtenerPorcentajeBase(nivel, hijos, edadGrupo) {
-  const es0a2 = edadGrupo === "0-2";
-
-  switch (nivel) {
-    case 1:
-      if (hijos <= 1) return es0a2 ? 28.12 : 29.49;
-      if (hijos === 2) return es0a2 ? 39.71 : 43.13;
-      return es0a2 ? 52.18 : 54.23;
-
-    case 2:
-      if (hijos <= 1) return es0a2 ? 34.84 : 36.96;
-      if (hijos === 2) return es0a2 ? 47.45 : 49.51;
-      return es0a2 ? 47.45 : 49.51;
-
-    case 3:
-      return es0a2 ? 38.49 : 40.83;
-    case 4:
-      return es0a2 ? 39.79 : 42.21;
-    case 5:
-      return es0a2 ? 41.14 : 43.64;
-    case 6:
-      return es0a2 ? 42.53 : 45.12;
-  }
-}
-
-function obtenerPorcentajeDiscapacidad(nivel, rango) {
-  if (rango === "ninguna") return 0;
-
-  const tabla = {
-    1: { "30-49": 4.56, "50-74": 5.23, "75-100": 6.63 },
-    2: { "30-49": 10.68, "50-74": 12.26, "75-100": 15.55 },
-    3: { "30-49": 18.23, "50-74": 20.92, "75-100": 26.53 },
-    4: { "30-49": 25.54, "50-74": 29.30, "75-100": 37.16 },
-    5: { "30-49": 30.43, "50-74": 34.92, "75-100": 44.28 },
-    6: { "30-49": 30.43, "50-74": 34.92, "75-100": 44.28 }
-  };
-
-  return tabla[nivel][rango];
-}
-
-function configurarCalculadoraPension() {
-  const ingreso = document.getElementById("ingreso-alimentante");
-  const hijos = document.getElementById("numero-hijos");
-  const edad = document.getElementById("grupo-edad");
-  const discapacidad = document.getElementById("rango-discapacidad");
-
-  const nivelSpan = document.getElementById("nivel-calculado");
-  const totalSpan = document.getElementById("resultado-total");
-  const porHijoSpan = document.getElementById("resultado-por-hijo");
-
-  const form = document.getElementById("form-calculadora");
-
-  if (!form) return;
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const ing = parseFloat(ingreso.value);
-    const num = parseInt(hijos.value);
-    const edadGrupo = edad.value;
-    const disc = discapacidad.value;
-
-    const nivel = obtenerNivelTabla(ing);
-    if (!nivel) {
-      nivelSpan.textContent = "Por debajo de 1 SBU (no aplica tabla)";
-      totalSpan.textContent = "—";
-      porHijoSpan.textContent = "—";
-      return;
-    }
-
-    const base = obtenerPorcentajeBase(nivel, num, edadGrupo);
-    const extra = obtenerPorcentajeDiscapacidad(nivel, disc);
-    const porcentajeFinal = base + extra;
-
-    const total = ing * (porcentajeFinal / 100);
-    const porHijo = total / num;
-
-    nivelSpan.textContent = `Nivel ${nivel}`;
-    totalSpan.textContent = total.toFixed(2) + " USD";
-    porHijoSpan.textContent = porHijo.toFixed(2) + " USD";
-  });
-}
-
-document.addEventListener("DOMContentLoaded", configurarCalculadoraPension);
+        configurarCalculadoraPension();
+    });
   </script>
 </body>
 </html>
