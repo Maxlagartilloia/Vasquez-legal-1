@@ -39,7 +39,7 @@
         backdrop-filter: blur(8px);
     }
     .logo-nav {
-      height: 8rem;   /* logo grande */
+      height: 8rem;
       width: auto;
     }
     .nav-link {
@@ -66,14 +66,21 @@
             padding-bottom: 6rem;
         }
     }
-    
-    .hero-visual {
-        height: 420px; 
-        background-image: url('https://i.postimg.cc/C1G2Vccs/06cf7e3a_558e_4dc2_8f3c_c6c30a11acc2.jpg');
-        background-size: cover;
-        background-position: center top;
-        border-radius: 0.75rem;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+
+    .hero-photo-card {
+      width: 100%;
+      max-width: 360px;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+      border: 1px solid rgba(148,163,184,0.5);
+      background: #020617;
+    }
+    .hero-photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     
     /* CARDS */
@@ -311,7 +318,14 @@
           </div>
         </div>
         
-        <div class="hidden lg:block hero-visual shadow-2xl"></div>
+        <!-- FOTO HERO ABODAGA -->
+        <div class="hidden lg:flex justify-end">
+          <div class="hero-photo-card">
+            <img
+              src="https://i.postimg.cc/C1G2Vccs/06cf7e3a_558e_4dc2_8f3c_c6c30a11acc2.jpg"
+              alt="Abogada Leidy Vázquez en Vázquez Legal">
+          </div>
+        </div>
       </div>
     </section>
 
@@ -734,30 +748,33 @@
           </div>
         </div>
 
-     <div class="card bg-white border border-gray-200">
-  <div class="flex flex-col items-center text-center gap-3 mb-3">
-    <!-- FOTO REAL DE LA ABOGADA -->
-    <div class="h-24 w-24 rounded-3xl border border-accent-gold/70 bg-gray-100 shadow-lg overflow-hidden">
-      <img 
-        src="https://i.postimg.cc/C1G2Vccs/06cf7e3a_558e_4dc2_8f3c_c6c30a11acc2.jpg" 
-        alt="Abogada Leidy Vázquez" 
-        class="w-full h-full object-cover">
-    </div>
+        <div class="card bg-white border border-gray-200">
+          <div class="flex flex-col items-center text-center gap-3 mb-3">
+            <!-- FOTO REAL DE LA ABOGADA (MISMA IMAGEN) -->
+            <div class="h-24 w-24 rounded-3xl border border-accent-gold/70 bg-gray-100 shadow-lg overflow-hidden">
+              <img 
+                src="https://i.postimg.cc/C1G2Vccs/06cf7e3a_558e_4dc2_8f3c_c6c30a11acc2.jpg" 
+                alt="Abogada Leidy Vázquez" 
+                class="w-full h-full object-cover">
+            </div>
 
-    <div>
-      <p class="font-semibold text-base text-authority">Leidy Vázquez G. (Abogada)</p>
-      <p class="text-xs text-slate-500">Directora del Estudio Jurídico</p>
-    </div>
-  </div>
-  <p class="text-sm text-slate-700 mb-3">
-    Abogada litigante especializada en Derecho Penal y Constitucional. Ha patrocinado casos de alta complejidad,
-    combinando técnica jurídica y sensibilidad humana.
-  </p>
-  <div class="text-[0.7rem] text-slate-500 space-y-1">
-    <p>Registro profesional N.° 12345 - Consejo de la Judicatura</p>
-    <p>Miembro de la Asociación de Abogados del Ecuador</p>
-  </div>
-</div>
+            <div>
+              <p class="font-semibold text-base text-authority">Leidy Vázquez G. (Abogada)</p>
+              <p class="text-xs text-slate-500">Directora del Estudio Jurídico</p>
+            </div>
+          </div>
+          <p class="text-sm text-slate-700 mb-3">
+            Abogada litigante especializada en Derecho Penal y Constitucional. Ha patrocinado casos de alta complejidad,
+            combinando técnica jurídica y sensibilidad humana.
+          </p>
+          <div class="text-[0.7rem] text-slate-500 space-y-1">
+            <p>Registro profesional N.° 12345 - Consejo de la Judicatura</p>
+            <p>Miembro de la Asociación de Abogados del Ecuador</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CIERRE FINAL => MAIL -->
     <section id="final-cta" class="reveal-on-scroll py-16 bg-authority text-white">
         <div class="max-w-4xl mx-auto px-4 text-center">
@@ -805,7 +822,7 @@
     </div>
   </footer>
 
-  <!-- ÚNICO BOTÓN CON NÚMERO: WHATSAPP -->
+  <!-- WHATSAPP FLOTANTE -->
   <a href="https://wa.me/593987348079?text=Hola,%20necesito%20asesor%C3%ADa%20legal%20urgente%20en%20Shushufindi."
      target="_blank"
      class="floating-whatsapp"
@@ -813,7 +830,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12.03 2.004c-5.503 0-9.976 4.47-9.976 9.974 0 1.954.557 3.863 1.62 5.56L1.004 22.996l6.233-1.637a9.986 9.986 0 0 0 4.792 1.134c5.504 0 9.976-4.47 9.976-9.974.001-5.504-4.472-9.977-9.976-9.977zM17.587 15.656c-.287.712-.993 1.157-1.745 1.157-.001 0-.001 0-.002 0-.295 0-.58-.093-.815-.279-1.096-.867-2.735-1.579-4.375-1.933a.475.475 0 0 1-.225-.038c-.066-.017-.134-.035-.205-.055-.83-.244-1.69-.607-2.485-1.077-.184-.108-.346-.239-.486-.395-.69-.76-.902-1.642-.902-2.522 0-1.127.57-2.112 1.547-2.766.425-.285.875-.427 1.328-.427.247 0 .493.037.728.113.332.108.571.37.669.704l.583 1.905c.105.344.025.727-.225 1.013-.198.223-.423.334-.633.376-.024.005-.049.006-.075.006-.214 0-.427-.086-.593-.257-.14-.141-.318-.282-.505-.38-.179-.095-.367-.143-.559-.143-.192 0-.385.048-.559.143-.14.076-.282.207-.406.395-.494.757-.123 1.706.371 2.385.505.679 1.152 1.348 2.302 1.831 1.149.483 2.302.733 3.454.755.025.001.05.002.075.002.664 0 1.298-.255 1.831-.738.169-.153.303-.357.391-.567.147-.32.062-.68-.198-1.012l-.583-1.905c-.097-.334-.02-1.072.71-1.398.423-.194.887-.335 1.325-.335.216 0 .43.037.64.113.882.352 1.696.868 2.296 1.488.082.083.176.166.275.253.211.189.373.402.486.634.332.74.015 1.76-.696 2.477z"/></svg>
   </a>
 
-  <!-- MODAL (por si luego lo usas; ahora no lo abre ningún botón) -->
+  <!-- MODAL (no se abre aún, listo para usar después) -->
   <div id="modal-cita-backdrop" class="modal-backdrop hidden opacity-0 transition-opacity duration-200">
     <div id="modal-cita-panel" class="modal-panel bg-white text-authority">
       <div class="flex items-start justify-between gap-4 mb-3">
@@ -1018,7 +1035,7 @@
         }, 100);
     }
 
-    // === CALCULADORA DE PENSIÓN ECUADOR 2025 ===
+    // === CALCULADORA DE PENSIÓN ECUADOR (REFERENCIAL) ===
     const SBU = 470;
 
     function obtenerNivelTabla(ingreso) {
