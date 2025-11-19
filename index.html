@@ -438,57 +438,64 @@
     </section>
 
     <!-- CALCULADORA PENSIÓN ALIMENTICIA -->
-    <section id="calculadora-pension" class="space-y-8 reveal-on-scroll pt-10 pb-16 bg-secondary">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 max-w-6xl mx-auto px-0">
-        <div>
-          <h2 class="section-title">Calculadora referencial de pensión alimenticia</h2>
-          <p class="text-sm md:text-base text-slate-700 max-w-2xl mt-2">
-            Esta herramienta aplica la fórmula básica usada en la tabla de pensiones alimenticias en Ecuador:
-            <span class="font-semibold">Pensión = Ingreso mensual × Porcentaje de la tabla ÷ 100</span>.
-            Ingresa el porcentaje que corresponda según el número de hijos, edad y nivel de ingresos.
-          </p>
-        </div>
-      </div>
+    <form id="form-calculadora" class="space-y-4 text-sm">
 
-      <div class="grid md:grid-cols-[1.1fr,0.9fr] gap-6 max-w-6xl mx-auto px-0">
-        <!-- Formulario calculadora -->
-        <div class="card bg-white border border-gray-200">
-          <h3 class="text-lg font-semibold text-authority mb-4">
-            Calcular monto aproximado
-          </h3>
-          <form id="pension-form" class="space-y-4 text-sm">
-            <div>
-              <label for="ingreso-mensual" class="block mb-1 text-slate-700">Ingreso mensual del alimentante (USD)</label>
-              <input
-                id="ingreso-mensual"
-                type="number"
-                min="0"
-                step="0.01"
-                required
-                class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority"
-                placeholder="Ej. 800.00"
-              >
-            </div>
+  <div>
+    <label class="block mb-1 text-slate-700">Ingreso mensual del alimentante (USD)</label>
+    <input id="ingreso-alimentante" type="number" min="0" step="0.01" required
+      class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold">
+    <p class="text-[11px] text-slate-500 mt-1">Ingreso neto aproximado después del IESS.</p>
+  </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label for="porcentaje-tabla" class="block mb-1 text-slate-700">
-                  Porcentaje de la tabla (%)
-                </label>
-                <input
-                  id="porcentaje-tabla"
-                  type="number"
-                  min="0"
-                  max="100"
-                  step="0.01"
-                  required
-                  class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold text-authority"
-                  placeholder="Ej. 29.49"
-                >
-                <p class="text-[11px] text-slate-500 mt-1">
-                  Usa el % según la tabla oficial (por nivel de ingreso, número de hijos y edad).
-                </p>
-              </div>
+  <div>
+    <label class="block mb-1 text-slate-700">Número de hijos beneficiarios</label>
+    <input id="numero-hijos" type="number" min="1" step="1" required
+      class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold">
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div>
+      <label class="block mb-1 text-slate-700">Edad del hijo de mayor edad</label>
+      <select id="grupo-edad"
+        class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold">
+        <option value="0-2">De 0 a 2 años 11 meses</option>
+        <option value="3+">De 3 años en adelante</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="block mb-1 text-slate-700">Discapacidad (algún hijo)</label>
+      <select id="rango-discapacidad"
+        class="w-full rounded-lg border border-gray-300 bg-gray-50 px-3 py-2 outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold">
+        <option value="ninguna">Sin discapacidad</option>
+        <option value="30-49">30% a 49%</option>
+        <option value="50-74">50% a 74%</option>
+        <option value="75-100">75% a 100%</option>
+      </select>
+    </div>
+  </div>
+
+  <button type="submit" class="btn-primary w-full justify-center">
+    Calcular pensión referencial
+  </button>
+
+</form>
+
+<div class="mt-4 border border-accent-gold/40 rounded-lg p-4">
+  <p class="text-sm font-semibold text-authority mb-2">Resultado aproximado:</p>
+
+  <p class="text-sm text-slate-700">
+    Nivel aplicado de la tabla: <span id="nivel-calculado">—</span>
+  </p>
+
+  <p class="text-sm text-slate-700">
+    Pensión total mensual: <span id="resultado-total">—</span>
+  </p>
+
+  <p class="text-sm text-slate-700">
+    Pensión referencial por hijo: <span id="resultado-por-hijo">—</span>
+  </p>
+</div>
 
               <div>
                 <label for="numero-hijos" class="block mb-1 text-slate-700">
@@ -1046,33 +1053,106 @@
         }
 
         // Calculadora de pensión alimenticia
-        const pensionForm = document.getElementById('pension-form');
-        if (pensionForm) {
-          pensionForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const ingresoInput = document.getElementById('ingreso-mensual');
-            const porcentajeInput = document.getElementById('porcentaje-tabla');
-            const hijosInput = document.getElementById('numero-hijos');
-            const totalSpan = document.getElementById('resultado-total');
-            const porHijoSpan = document.getElementById('resultado-por-hijo');
+       // === CALCULADORA DE PENSIÓN ECUADOR 2025 ===
+const SBU = 470;
 
-            const ingreso = parseFloat(ingresoInput.value);
-            const porcentaje = parseFloat(porcentajeInput.value);
-            const hijos = parseInt(hijosInput.value, 10);
+function obtenerNivelTabla(ingreso) {
+  const sbu = ingreso / SBU;
 
-            if (isNaN(ingreso) || isNaN(porcentaje) || isNaN(hijos) || ingreso <= 0 || porcentaje <= 0 || hijos <= 0) {
-              showNotification('Por favor completa todos los campos de la calculadora con valores válidos.');
-              return;
-            }
+  if (sbu >= 1 && sbu <= 1.25) return 1;
+  if (sbu > 1.25 && sbu <= 3) return 2;
+  if (sbu > 3 && sbu <= 4) return 3;
+  if (sbu > 4 && sbu <= 6.5) return 4;
+  if (sbu > 6.5 && sbu <= 9) return 5;
+  if (sbu > 9) return 6;
 
-            const total = ingreso * (porcentaje / 100);
-            const porHijo = total / hijos;
+  return null;
+}
 
-            totalSpan.textContent = total.toFixed(2);
-            porHijoSpan.textContent = porHijo.toFixed(2);
-          });
-        }
-    });
+function obtenerPorcentajeBase(nivel, hijos, edadGrupo) {
+  const es0a2 = edadGrupo === "0-2";
+
+  switch (nivel) {
+    case 1:
+      if (hijos <= 1) return es0a2 ? 28.12 : 29.49;
+      if (hijos === 2) return es0a2 ? 39.71 : 43.13;
+      return es0a2 ? 52.18 : 54.23;
+
+    case 2:
+      if (hijos <= 1) return es0a2 ? 34.84 : 36.96;
+      if (hijos === 2) return es0a2 ? 47.45 : 49.51;
+      return es0a2 ? 47.45 : 49.51;
+
+    case 3:
+      return es0a2 ? 38.49 : 40.83;
+    case 4:
+      return es0a2 ? 39.79 : 42.21;
+    case 5:
+      return es0a2 ? 41.14 : 43.64;
+    case 6:
+      return es0a2 ? 42.53 : 45.12;
+  }
+}
+
+function obtenerPorcentajeDiscapacidad(nivel, rango) {
+  if (rango === "ninguna") return 0;
+
+  const tabla = {
+    1: { "30-49": 4.56, "50-74": 5.23, "75-100": 6.63 },
+    2: { "30-49": 10.68, "50-74": 12.26, "75-100": 15.55 },
+    3: { "30-49": 18.23, "50-74": 20.92, "75-100": 26.53 },
+    4: { "30-49": 25.54, "50-74": 29.30, "75-100": 37.16 },
+    5: { "30-49": 30.43, "50-74": 34.92, "75-100": 44.28 },
+    6: { "30-49": 30.43, "50-74": 34.92, "75-100": 44.28 }
+  };
+
+  return tabla[nivel][rango];
+}
+
+function configurarCalculadoraPension() {
+  const ingreso = document.getElementById("ingreso-alimentante");
+  const hijos = document.getElementById("numero-hijos");
+  const edad = document.getElementById("grupo-edad");
+  const discapacidad = document.getElementById("rango-discapacidad");
+
+  const nivelSpan = document.getElementById("nivel-calculado");
+  const totalSpan = document.getElementById("resultado-total");
+  const porHijoSpan = document.getElementById("resultado-por-hijo");
+
+  const form = document.getElementById("form-calculadora");
+
+  if (!form) return;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const ing = parseFloat(ingreso.value);
+    const num = parseInt(hijos.value);
+    const edadGrupo = edad.value;
+    const disc = discapacidad.value;
+
+    const nivel = obtenerNivelTabla(ing);
+    if (!nivel) {
+      nivelSpan.textContent = "Por debajo de 1 SBU (no aplica tabla)";
+      totalSpan.textContent = "—";
+      porHijoSpan.textContent = "—";
+      return;
+    }
+
+    const base = obtenerPorcentajeBase(nivel, num, edadGrupo);
+    const extra = obtenerPorcentajeDiscapacidad(nivel, disc);
+    const porcentajeFinal = base + extra;
+
+    const total = ing * (porcentajeFinal / 100);
+    const porHijo = total / num;
+
+    nivelSpan.textContent = `Nivel ${nivel}`;
+    totalSpan.textContent = total.toFixed(2) + " USD";
+    porHijoSpan.textContent = porHijo.toFixed(2) + " USD";
+  });
+}
+
+document.addEventListener("DOMContentLoaded", configurarCalculadoraPension);
   </script>
 </body>
 </html>
